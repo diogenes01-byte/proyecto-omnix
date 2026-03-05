@@ -1,0 +1,1 @@
+print("EcoRAG project started")
