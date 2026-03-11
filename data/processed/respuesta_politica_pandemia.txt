@@ -1,0 +1,991 @@
+2020
+LA RESPUESTA DE LA POLÍTICA
+MONETARIA DEL BANCO CENTRAL
+EUROPEO FRENTE A LA CRISIS
+DEL COVID-19
+Documentos Ocasionales
+N.º 2026
+Pablo Aguilar, Óscar Arce, Samuel Hurtado,
+Jaime Martínez-Martín, Galo Nuño y Carlos Thomas
+LA RESPUESTA DE LA POLÍTICA MONETARIA DEL BANCO CENTRAL EUROPEO
+FRENTE A LA CRISIS DEL COVID-19
+LA RESPUESTA DE LA POLÍTICA MONETARIA DEL BANCO
+CENTRAL EUROPEO FRENTE A LA CRISIS DEL COVID-19
+Pablo Aguilar, Óscar Arce, Samuel Hurtado, Jaime Martínez-Martín,
+Galo Nuño y Carlos Thomas
+BANCO DE ESPAÑA
+Documentos Ocasionales. N.º 2026
+2020
+La serie de Documentos Ocasionales tiene como objetivo la difusión de trabajos realizados en el Banco de
+España, en el ámbito de sus competencias, que se consideran de interés general.
+Las opiniones y análisis que aparecen en la serie de Documentos Ocasionales son responsabilidad de los
+autores y, por tanto, no necesariamente coinciden con los del Banco de España o los del Eurosistema.
+El Banco de España difunde sus informes más importantes y la mayoría de sus publicaciones a través de
+la red Internet en la dirección http://www.bde.es.
+Se permite la reproducción para fines docentes o sin ánimo de lucro, siempre que se cite la fuente.
+© BANCO DE ESPAÑA, Madrid, 2020
+ISSN: 1696-2230 (edición electrónica)
+Resumen
+El Banco Central Europeo (BCE) ha desplegado una respuesta enérgica ante los desafíos
+planteados por la crisis del Covid-19 a la economía del área del euro. Este documento
+revisa las diferentes medidas de política monetaria adoptadas por el BCE desde la
+irrupción de la pandemia, y proporciona una explicación de su motivación, así como
+varios análisis del impacto de algunas de las principales medidas sobre la economía
+española y sobre el área del euro en su conjunto.
+Palabras clave: Banco Central Europeo, compra de activos, operaciones de refinanciación.
+Códigos JEL: E44, E52, E58.
+Abstract
+The ECB has responded forcefully to the considerable challenges posed by the COVID-19
+crisis for the euro area economy. This article reviews the different monetary policy measures
+adopted by the ECB since the COVID-19 outbreak and explains their rationale. It also
+looks at several analyses of the impact of some of the main measures on both the Spanish
+economy and that of the euro area as a whole.
+Keywords: European Central Bank, asset purchases, refinancing operations.
+JEL classification: E44, E52, E58.
+Índice
+Resumen 5
+Abstract 6
+1 Introducción 8
+2 El estado de la política monetaria previo a la crisis del Covid-19 9
+3 Medidas adoptadas por el BCE frente a la pandemia 13
+4 El impacto del PEPP 19
+4.1 Impacto sobre los mercados financieros 19
+4.2 Impacto macroeconómico 20
+5 Consideraciones finales 25
+Bibliografía 26
+1 Introducción
+La irrupción del Covid-19 en el área del euro ha generado una crisis sanitaria y económica
+sin precedentes en la historia reciente. Ante esta situación, la reacción de las autoridades
+económicas ha resultado enérgica y contundente. En particular, el Banco Central Europeo
+(BCE) ha desempeñado un papel muy notable a la hora de hacer frente al endurecimiento
+inicial de las condiciones financieras producido por la crisis pandémica y, de esta forma,
+evitar un impacto más grave de esta sobre la economía real.
+El objetivo de este documento es resumir las medidas adoptadas por el BCE,
+explicar la motivación que llevó a adoptarlas y analizar los efectos financieros y económicos
+de las principales, tanto en España como en el área del euro en su conjunto. Para ello se
+proporciona, en primer lugar, una breve descripción de la situación de la política monetaria
+en la Unión Económica y Monetaria (UEM) antes de la llegada del virus, caracterizada por un
+entorno de baja inflación y bajos tipos de interés. Tras ello se detallan las diversas medidas
+tomadas por el BCE desde marzo. Finalmente, se analiza, mediante diversas herramientas
+cuantitativas, cuál ha sido el posible impacto económico y financiero de la principal medida
+adoptada en el contexto de la actual pandemia, el Programa de Compras de Emergencia
+frente a la Pandemia (PEPP, por sus siglas en inglés). Según estas herramientas, el PEPP
+tendría efectos positivos de primer orden sobre el PIB y la inflación del área del euro y de
+España. Estos resultados representan probablemente una estimación conservadora de los
+efectos del PEPP, dada la dificultad de cuantificar la severidad del deterioro financiero y
+económico que se habría producido en ausencia de este programa.
+BANCO DE ESPAÑA 8 DOCUMENTO OCASIONAL N.º 2026
+2 El estado de la política monetaria previo a la crisis del Covid-19
+Durante la década anterior a la crisis del Covid-19, las principales economías avanzadas
+estuvieron expuestas a presiones desinflacionistas que dieron paso a un período de inflación
+persistentemente baja (véase gráfico 1). Esto llevó a los bancos centrales a mantener sus
+tipos de interés de referencia en niveles cercanos a cero, o incluso, en algunos casos,
+negativos. A medida que el espacio para bajadas adicionales de tipos de interés se fue
+estrechando, los bancos centrales comenzaron a utilizar una serie de herramientas «no
+convencionales», como la orientación sobre el curso futuro de los tipos de interés (forward
+guidance) o diversas medidas de expansión de su balance (conocidas genéricamente como
+«relajación cuantitativa» o quantitative easing), con el objetivo de conseguir un mayor grado
+de expansión monetaria1 (véase gráfico 2). Estas medidas no convencionales demostraron
+su efectividad para hacer frente a situaciones en que la política monetaria convencional de
+tipos de interés se acerca al límite inferior a estos y, en consecuencia, han pasado a formar
+parte del instrumental de la política monetaria en lo que se ha llamado el «nuevo normal»
+(new normal) de la política monetaria2.
+Si bien en algunas economías, como el Reino Unido y Estados Unidos, los tipos
+de interés habían experimentado una cierta normalización con anterioridad a la irrupción
+Gráfico 1
+INFLACIÓN GENERAL (IPC)
+Tasa interanual
+%
+6
+5
+4
+3
+2
+1
+0
+-1
+-2
+-3
+2007 2008 2009 2010 2011 2012 2013 2014 2015 2016 2017 2018 2019 2020
+ÁREA DEL EURO ESTADOS UNIDOS JAPÓN REINO UNIDO
+FUENTE: Thomson Reuters Datastream.
+1 Para un análisis detallado de la política monetaria del área del euro en respuesta a las presiones desinflacionarias, véase
+Banco de España (2016).
+2 El límite inferior a los tipos de interés nominales es consecuencia del hecho de que los agentes económicos pueden
+retirar en efectivo sus ahorros si su remuneración es lo suficientemente negativa. Dicho límite es inferior a cero debido
+a los costes y riesgos intrínsecos asociados al almacenamiento de billetes (seguridad, riesgo de pérdida o robo,
+etc.). Para un análisis detallado del impacto de las medidas no convencionales en los años anteriores a la crisis del
+Covid-19, véase Rostagno et al. (2019). Banco de España (2019) discute en profundidad el «nuevo normal» de la
+política monetaria, y Arce et al. (2019) analizan el papel de las reinversiones de la cartera de activos en el contexto de
+los programas de compra de activos.
+BANCO DE ESPAÑA 9 DOCUMENTO OCASIONAL N.º 2026
+Gráfico 2
+TIPOS DE INTERÉS OFICIALES Y BALANCE DE LOS BANCOS CENTRALES
+1 TIPOS DE INTERÉS OFICIALES 2 BALANCE DE BANCOS CENTRALES
+% % del PIB 2019 % del PIB 2019
+6 60 140
+5 50 120
+4 100
+40
+3 80
+30
+2 60
+20
+1 40
+0 10 20
+-1 0 0
+07 08 09 10 11 12 13 14 15 16 17 18 19 20 08 09 10 11 12 13 14 15 16 17 18 19 20
+EUROSISTEMA RESERVA FEDERAL DE EEUU EUROSISTEMA RESERVA FEDERAL DE EEUU
+BANCO DE INGLATERRA BANCO DE JAPÓN BANCO DE INGLATERRA BANCO DE JAPÓN (Escala dcha.)
+FUENTE: Thomson Reuters Datastream.
+de la pandemia de Covid-19, en el caso del área del euro los tipos de interés todavía se
+mantenían en ese momento en mínimos históricos. La perspectiva de que este escenario
+de tipos de interés y tasas de inflación persistentemente bajos pudiera prolongarse en el
+futuro suponía, ya antes de la pandemia, un importante desafío para la conducción de la
+política monetaria. La información contenida en la curva de tipos pre-Covid-19 sugería que,
+según las expectativas reflejadas en los mercados financieros, los tipos de interés a corto
+plazo continuarían en los próximos años en niveles sustancialmente inferiores a sus valores
+medios anteriores a la crisis económica de 2008 (véase gráfico 3).
+El entorno de bajos tipos de interés está relacionado con la caída del llamado
+«tipo de interés natural», definido como el tipo de interés real coherente con un volumen
+de producción igual al nivel potencial de la economía y con una inflación estable. En teoría,
+una correcta conducción de la política monetaria exige que los bancos centrales ajusten
+sus tipos de interés nominales de forma que el tipo de interés real (es decir, el nominal
+menos la inflación esperada) siga aproximadamente la senda del tipo de interés natural3, ya
+que ello permite mantener la inflación en niveles cercanos a su objetivo. De esta forma, el
+descenso del tipo de interés natural estimado de los últimos años explicaría que los bancos
+centrales, para evitar tasas de inflación excesivamente bajas, se hayan visto obligados a
+reducir sus tipos de interés, acercando estos últimos a su límite inferior4. La caída del
+tipo de interés natural de los últimos años se debe a factores estructurales, como el
+descenso del crecimiento de la productividad, el envejecimiento progresivo de la población
+3 Para un análisis detallado del tipo de interés natural y de sus implicaciones para la política monetaria, incluyendo una
+descripción de la relación entre el tipo de interés natural y la inflación en el contexto del modelo neokeynesiano estándar,
+véase Galesi et al. (2017).
+4 H olston et al. (2017), por ejemplo, estiman que en 2016 el tipo natural se encontraba en niveles positivos, pero muy
+cercanos, a cero en Estados Unidos, y negativos en el área del euro. Fiorentini et al. (2018) encuentran valores negativos
+tanto para Estados Unidos como para el área del euro.
+BANCO DE ESPAÑA 10 DOCUMENTO OCASIONAL N.º 2026
+Gráfico 3
+CURVA FORWARD INSTANTÁNEA DEL OIS (a)
+%
+3,2
+2,8
+Eonia.Media del período 1999-2008
+2,4
+2,0
+1,6
+1,2
+0,8
+0,4
+0,0
+-0,4
+-0,8
+ene-20 ene-21 ene-22 ene-23 ene-24 ene-25 ene-26 ene-27 ene-28 ene-29 ene-30
+31.12.2019 4.9.2020
+FUENTES: Thomson Reuters Datastream y Banco de España.
+a La curva forward instantánea del OIS se calcula a partir de los precios negociados en los contratos swaps del OIS (Overnight Interest Swap) y
+representa el tipo de interés del eonia que debería darse en cada momento del futuro para que dichos contratos no impliquen pagos entre las
+partes. La curva de tipos OIS proporciona una estimación imperfecta de las expectativas sobre los tipos de interés en el futuro, ya que se ve
+afectada también por la prima de duración, que refleja el riesgo de tipos de interés soportado por los agentes financieros. El eonia (Euro Overnight
+Index Average) es un índice de tipos de interés de préstamos interbancarios a un día, y es habitualmente considerado como el objetivo operativo
+implícito del BCE.
+o la relativa escasez de activos financieros seguros, aspectos todos ellos sobre los cuales
+los bancos centrales tienen poca capacidad de actuación. La constatación de esta caída
+del tipo de interés natural, y el consiguiente aumento de la probabilidad de que la cota
+inferior a los tipos de interés nominales pueda restringir en el futuro la capacidad de los
+bancos centrales de cumplir sus objetivos, motivó el inicio de procesos de revisión de su
+estrategia de política monetaria por parte de algunos de los principales bancos centrales,
+como la Reserva Federal o el BCE, con el objeto de adaptarla a esta nueva realidad5.
+En este contexto, los trimestres anteriores al comienzo de la pandemia se vieron
+marcados por la persistencia de la inflación del área del euro en niveles relativamente
+bajos y alejados de su referencia de medio plazo (inferior, pero cercana, al 2 %). El IAPC
+general aumentó un 1,2 % en el promedio de 2019, seis décimas menos que en 2018,
+mientras que la inflación subyacente, que excluye los precios de los alimentos y la energía,
+también se situó en tasas reducidas, del 1 % en el promedio de 2019, igual que en los dos
+años anteriores.
+La política monetaria del BCE reaccionó ante esta situación y acentuó su tono
+expansivo a lo largo de 2019. En primer lugar, el BCE recortó el tipo de la facilidad de
+depósito (DFR, por sus siglas en inglés) en septiembre de 2019 en 10 puntos básicos (pb)
+y lo dejó en el –0,50 %. Los tipos de interés aplicables a las operaciones principales
+5 A finales de agosto de este año, la Reserva Federal anunció los resultados principales de su proceso de revisión
+estratégica. Véase el recuadro 2 del «Informe trimestral de la economía española», Boletín Económico, 3/2020, para una
+descripción de dicho anuncio y una valoración de sus efectos sobre los mercados financieros.
+BANCO DE ESPAÑA 11 DOCUMENTO OCASIONAL N.º 2026
+Gráfico 4
+TIPOS OFICIALES DEL BCE Y BALANCE DEL EUROSISTEMA
+1 TIPOS DE INTERÉS OFICIALES DEL BCE Y EONIA 2 BALANCE DEL EUROSISTEMA
+% mm €
+6 6.000
+5 4.500
+3.000
+4
+1.500
+3
+0
+2
+-1.500
+1
+-3.000
+0 -4.500
+-1 -6.000
+07 08 09 10 11 12 13 14 15 16 17 18 19 20 07 08 09 10 11 12 13 14 15 16 17 18 19 20
+INTERVENCIÓN SEMANAL FACILIDAD MARGINAL DE CRÉDITO RESTO NETO VALORES
+FACILIDAD DE DEPÓSITO EONIA FACILIDADES DE LIQUIDEZ RESERVAS
+EFECTIVO
+FUENTES: Thomson Reuters Datastream y Banco Central Europeo.
+de financiación y a la facilidad marginal de crédito se mantuvieron estables en el 0 % y el
+0,25 %, respectivamente (véase gráfico 4)6. En segundo lugar, el BCE introdujo una nueva
+serie de operaciones de financiación a plazo más largo con objetivo específico (TLTRO-III, por
+sus siglas en inglés). Este programa proporciona a los bancos liquidez a precios ventajosos
+en el caso de que cumplan con ciertos objetivos sobre el crecimiento del crédito a la
+economía real. Esta medida buscaba preservar unas condiciones crediticias favorables y
+apoyar así la transmisión de la política monetaria a través del canal bancario. En tercer
+lugar, el BCE decidió reanudar las compras netas de activos públicos y privados bajo el
+programa de compra de activos (APP, por sus siglas en inglés), a un ritmo de 20 mm de
+euros mensuales, comenzando en noviembre de 2019. De esta manera, el BCE perseguía
+mejorar las condiciones de financiación en mercados financieros, como se explica en la
+siguiente sección con más detalle7.
+En resumen, la irrupción del Covid-19 en el área del euro se produjo en un contexto
+de baja inflación y amplio estímulo monetario, con los tipos de interés de referencia en
+mínimos históricos, nuevas compras netas de activos bajo el programa APP y un calendario
+establecido de subastas de liquidez a largo plazo bajo el programa TLTRO-III.
+6 La reducción del DFR suponía profundizar en la política de remuneración negativa de las reservas del sector bancario
+depositadas en el BCE. Con el objetivo de preservar la transmisión de la política monetaria a través de los bancos,
+el BCE anunció la introducción de un sistema escalonado de remuneración de reservas, por el cual una parte de las
+reservas pasaba a estar exenta de remuneración negativa.
+7 Junto con estas medidas, el BCE reformuló en septiembre de 2019 la orientación sobre el curso futuro de los tipos
+de interés. En particular, eliminó la mención a horizontes temporales concretos y pasó a vincular la primera subida de
+tipos a que las perspectivas de inflación convergieran de forma robusta hacia un nivel lo suficientemente cercano (aunque
+inferior) a la referencia del 2 %.
+BANCO DE ESPAÑA 12 DOCUMENTO OCASIONAL N.º 2026
+3 Medidas adoptadas por el BCE frente a la pandemia
+La reacción del BCE ante la crisis del Covid-19 ha sido ágil y decidida8. A continuación
+se detallan las principales medidas adoptadas por el BCE desde principios de marzo de
+2020 hasta la fecha de cierre de este documento. Dichas medidas se han centrado en
+sus programas de compra de activos (APP y PEPP) y en sus operaciones de financiación
+a largo plazo (LTRO, TLTRO-III y PELTRO) con un triple objetivo: i) garantizar que la
+orientación general de su política monetaria fuese lo suficientemente acomodaticia;
+ii) apoyar la estabilización de los mercados financieros para salvaguardar el mecanismo de
+transmisión de la política monetaria, y iii) proporcionar una amplia liquidez, especialmente
+para mantener la provisión de crédito bancario. El cuadro 1 contiene un resumen de las
+medidas adoptadas.
+Ante la evolución de la crisis sanitaria del Covid-19 en el último tramo del primer
+trimestre de este año, el pasado 12 de marzo el BCE adoptó un paquete inicial de medidas
+expansivas. En primer lugar, acordó aplicar condiciones considerablemente más favorables,
+entre junio de 2020 y junio de 2021, a todas las operaciones TLTRO-III vigentes durante ese
+período9. De esta manera, el BCE perseguía incentivar la concesión de crédito a los agentes
+más afectados por la propagación del Covid-19, en particular a las pequeñas y medianas
+empresas y a los trabajadores autónomos, que son más dependientes del crédito bancario,
+al tener mayores dificultades para acceder a la financiación de mercado. Ante el progresivo
+deterioro de la situación económica, las condiciones de las TLTRO-III fueron objeto de una
+mejora adicional en la reunión del BCE del 30 de abril10.
+La subasta de junio de este programa alcanzó los 1,3 billones de euros adjudicados
+a los bancos del área del euro, récord histórico en las operaciones de financiación del
+BCE. La información de la que se dispone sugiere que los bancos europeos estarían
+empleando en gran medida esta liquidez para proporcionar crédito a la economía real. Así
+se desprendía de la Encuesta sobre Préstamos Bancarios de la zona del euro de abril de
+2020, en la que un 74 % de los bancos consultados indicaban que esperaban utilizar la
+liquidez proporcionada por las TLTRO-III para conceder préstamos a hogares y empresas
+durante los seis meses siguientes. A día de hoy, tanto en la UEM como, particularmente,
+en España, los tipos de interés de los préstamos bancarios se han mantenido en niveles
+cercanos a sus mínimos históricos y el volumen de nuevos préstamos bancarios a empresas
+8 Véase Banco de España (2020) para más detalles acerca de las actuaciones del BCE y otros bancos centrales frente
+a la pandemia.
+9 TLTRO son las siglas en inglés de «operaciones de refinanciación con objetivo específico». Se denominan así porque
+el tipo de interés a pagar por las entidades bancarias participantes al BCE depende de que cumplan con unos
+determinados objetivos en términos de concesión de préstamos a empresas y hogares, siendo más bajos dichos
+tipos de interés cuanto mayor es la actividad crediticia de la entidad durante el período de referencia. Las TLTRO-III se
+refieren al tercer programa de estas características implementado por el BCE.
+10 Tras esta recalibración, el tipo máximo aplicable entre junio de 2020 y junio de 2021 es 50 pb inferior al tipo medio
+de las operaciones principales de financiación a largo plazo (MRO, por sus siglas en inglés), actualmente en el 0 %.
+Para las entidades que mantengan el volumen de provisión de crédito a la economía real, el tipo de interés será 50 pb
+inferior al DFR medio. El valor actual del DFR es del –0,50 %, de modo que aquellas entidades que logren mantener
+su provisión de crédito pagarían un tipo de interés del –1 % entre junio de 2020 y junio de 2021 (siempre y cuando no
+haya aumentos del DFR durante dicho período).
+BANCO DE ESPAÑA 13 DOCUMENTO OCASIONAL N.º 2026
+Cuadro 1
+MEDIDAS DE POLÍTICA MONETARIA ADOPTADAS POR EL BCE PARA COMBATIR EL IMPACTO DEL CORONAVIRUS
+Medidas 12 de marzo 18 de marzo 7 de abril 22 de abril 30 de abril 4 de junio
+Apoyo – TLTRO-III – 15 de marzo: – TLTRO-III: mejora
+al crédito en condiciones operaciones de las condiciones
+más favorables semanales durante el período
+(–25 pb) con USD con de crisis (–50 pb)
+vencimientos
+– LTRO: 12 a 84 días – PELTRO: 7
+operaciones operaciones
+adicionales como – 20 de marzo: excepcionales
+puente, con operaciones con vencimiento
+vencimiento semanales: en III TR 2021
+en junio de 2020 incremento (–25 pb)
+(tipo medio de de frecuencia
+la facilidad a diarias
+de depósito)
+Relajación Anuncio de ajustes – Reducción en – Los activos
+de los en los criterios de un 20 % de negociables
+criterios garantías los recortes que eran aceptables
+de garantías de valoración el 7 de abril seguirán
+aplicados a los siéndolo, con un
+activos de umbral equivalente
+garantía a BB (CQS5 en la
+taxonomía del
+– Ampliación Eurosistema
+del universo de y CQS4 para ABS)
+activos elegibles
+en ACC
+Compras – APP: compras PEPP: programa – PEPP: incremento
+de activos netas de activos de compras por valor de
+adicionales por excepcional dotado de 600 mm €
+valor de 120 mm € 750 mm € hasta final adcionales
+hasta finales de 2020 (1,35 bn €
+de 2020 dotación
+total) y extendido
+hasta final
+de 2021
+Reinversiones
+como mínimo
+hasta finales
+de 2022
+FUENTE: Banco de España.
+ha crecido a ritmos muy elevados desde marzo, muy por encima de la tasa de expansión
+del crédito previa a la pandemia11.
+En segundo lugar, el BCE decidió llevar a cabo operaciones de financiación a plazo
+más largo (LTRO, por sus siglas en inglés). El objetivo de estas operaciones, con vencimiento
+el 24 de junio de 2020, era ofrecer financiación «puente» a los bancos comerciales hasta
+esa fecha, en la cual tendría lugar la subasta de junio del programa TLTRO-III mencionada
+anteriormente12. En previsión de que estas operaciones de financiación, cuyas condiciones
+11 A la hora de preservar la oferta de crédito bancario también han desempeñado un papel importante las líneas
+de avales públicos a los préstamos bancarios introducidas en varios países del área, incluida España. Para más
+detalle sobre la evolución de la financiación a empresas y hogares en el contexto de la crisis del Covid-19, véase
+Alves et al. (2020).
+12 En estas nuevas operaciones LTRO, el tipo de interés aplicable era el tipo medio (durante la vida de la operación) del
+DFR (actualmente en el –0,50 %) y existe adjudicación plena.
+BANCO DE ESPAÑA 14 DOCUMENTO OCASIONAL N.º 2026
+no están ligadas al cumplimiento de objetivos de provisión de crédito, fuesen necesarias
+para algunos bancos más allá de junio, el BCE introdujo nuevas operaciones de financiación
+a plazo más largo de emergencia frente a la pandemia (PELTRO, por sus siglas en inglés) el
+30 de abril. Estas operaciones tienen un coste superior al de las LTRO y las TLTRO-III, ya que
+se conciben solo para su uso en situaciones excepcionales, siendo la TLTRO-III el principal
+instrumento para la transmisión del estímulo monetario del BCE a los bancos13.
+En tercer lugar, el BCE se comprometió a realizar compras netas de activos
+financieros, dentro del APP, por valor de 120 mm de euros adicionales hasta el final de
+2020. Estos 120 mm se añadían a los 20 mm mensuales aprobados en septiembre de 2019.
+El objetivo de esta medida era mejorar las condiciones de financiación en los mercados
+financieros mediante la reducción de los tipos de interés de los valores de deuda pública
+y privada.
+El mecanismo principal a través del cual las compras de activos reducen los tipos de
+interés es la absorción por parte del banco central de parte del riesgo de duración existente
+en el mercado. El riesgo de duración se debe a la variación en el precio de mercado de
+los bonos de medio y largo plazo durante la vida de estos. Cuando el banco central compra
+bonos a los inversores, libera capacidad en estos últimos para absorber nuevos riesgos, lo
+que reduce el precio del riesgo en el mercado y, por lo tanto, la prima de plazo implícita en los
+rendimientos de los bonos (es decir, la compensación exigida por los inversores para asumir
+el riesgo de duración)14. Este efecto se ve reforzado en situaciones, como la de la primera
+mitad de marzo, en las que, además del riesgo de duración, los precios de los activos se ven
+afectados por un aumento del riesgo de impago. La ampliación del APP ha aumentado la
+extracción de estos riesgos en un contexto de fuerte incremento del volumen de emisiones
+de deuda (véase gráfico 5 para el caso de la deuda pública).
+El 18 de marzo, las perspectivas de la economía del área del euro habían empeorado
+significativamente tras el anuncio de confinamientos en varios países —entre ellos, España— y
+un fuerte repunte en los tipos de interés de la deuda soberana (véase gráfico 6.1) y corporativa.
+Este repunte no era homogéneo entre jurisdicciones, sino mucho más acusado en aquellos
+países, como Italia o España, más afectados por la pandemia y con una situación fiscal
+menos holgada al inicio de la crisis. Es importante mencionar que, en la zona del euro, los
+rendimientos soberanos de cada país miembro desempeñan un papel fundamental en la
+transmisión de la política monetaria a la economía real. En particular, los rendimientos
+soberanos no solo son importantes para los costes de financiación de los Gobiernos, sino
+que también son una referencia clave a la hora de determinar los costes de financiación en
+los mercados de capitales de las empresas y las entidades financieras. En el caso de estas
+13 En particular, se llevarán a cabo siete operaciones, comenzando en mayo, con plazos de vencimientos escalonados
+en el tercer trimestre de 2021. Estas operaciones se efectuarán mediante procedimientos de subasta a tipo de interés
+fijo con adjudicación plena, a un tipo de interés 25 pb inferior al tipo MRO medio vigente durante la vida de cada
+PELTRO.
+14 El retorno de un activo de renta fija es la suma de un componente de expectativas, que refleja la evolución esperada
+futura de los tipos de interés a corto plazo, más una prima de plazo, que refleja el riesgo absorbido por los inversores.
+Véanse Vayanos y Vila (2009) o Eser et al. (2019).
+BANCO DE ESPAÑA 15 DOCUMENTO OCASIONAL N.º 2026
+Gráfico 5
+ESTIMACIÓN ILUSTRATIVA DEL RIESGO DE DURACIÓN: CARTERA Y BONOS PONDERADOS POR VENCIMIENTO
+(PSPP + PEPP-GOV)
+mm € % del total (escenario severo)
+9.000 30
+8.000 Previsiones a modo ilustrativo 28
+7.000 26
+24
+6.000
+22
+5.000
+20
+4.000
+18
+3.000
+16
+2.000 14
+1.000 12
+0 10
+ene-20 abr-20 jul-20 oct-20 ene-21 abr-21 jul-21 oct-21 ene-22 abr-22 jul-22 oct-22
+BONOS SOBERANOS EN CIRCULACIÓN (BIG-4, ESCENARIO SEVERO)
+PEPP (BIG-4)
+PSPP (BIG-4)
+PROPORCIÓN DEL STOCK DE TÍTULOS DE DEUDA DEL BIG-4 EN LA CARTERA DEL PSPP-PEPP (Escala dcha.)
+FUENTE: Banco Central Europeo. Última observación: agosto de 2020.
+NOTA: El gráfico presenta una proyección ilustrativa de la cartera de bonos del sector público de Alemania, Francia, Italia y España (Big-4) en los programas
+de compras del BCE, distinguiendo entre las tenencias del PSPP (el subprograma de compras del sector público del APP) y del PEPP (PEPP-GOV). La
+proyección de compras netas mensuales del PSPP a partir de agosto de 2020 (última información disponible en la fecha de redacción de este documento)
+se calcula como el 80 % (peso actual de los bonos del sector público en la cartera del APP) de la suma de 20 mm de euros durante todo el horizonte de
+previsión (en línea con los supuestos de la encuesta Survey of Monetary Analysts del BCE) y de 120 mm de euros hasta el final de 2020. A este valor se le
+aplica un peso adicional del 72 % para reflejar la cartera del Big-4 sobre el stock del PSPP. También se incluye la parte correspondiente a las compras
+adicionales del PEPP (1.350 mm de euros), para las cuales se realiza el supuesto (a modo ilustrativo) de reparto lineal de las compras durante el horizonte
+de proyección. Se asume un peso del 90 % de compra de valores públicos sobre el total del PEPP (correspondiente de forma aproximada al peso actual)
+y la misma ponderación del 72 % para el Big-4. El gráfico muestra asimismo una proyección del stock de deuda soberana correspondiente al Big-4. Todos
+los importes se muestran en términos equivalentes a bonos de diez años, métrica habitualmente empleada para reflejar el volumen de riesgo de duración
+en un conjunto de bonos con distintos vencimientos, para lo cual se ha utilizado el vencimiento promedio ponderado (WAM, por sus siglas en inglés) de
+las respectivas carteras de deuda pública. El WAM de la cartera del PEPP-GOV y del PSPP para el Big-4 es de 7 y de 7,21 años, respectivamente, mientras
+que los WAM (en 2019) de los stocks de deuda soberana son de 7,27 (DEU), 8 (FRA), 7,3 (ITA) y 8 años (ESP). Interpolación lineal de frecuencia anual a
+mensual de las proyecciones del stock de deuda soberana correspondiente al Big-4. Por último, es importante recalcar que las proyecciones que se
+muestran en este gráfico no deben interpretarse como una previsión propiamente dicha, sino solo a título ilustrativo.
+últimas, en cuanto que los costes del crédito bancario están ligados a los costes de financiación
+de los propios bancos, los rendimientos soberanos acaban afectando indirectamente al
+tipo de interés del crédito bancario, del cual, como se ha dicho, son altamente dependientes
+las pequeñas y medianas empresas y los autónomos, así como los hogares.
+Ante esta situación, el 18 de marzo, el BCE anunció el PEPP en una reunión
+extraordinaria. Este programa temporal contempla la compra de las mismas clases de
+activos, tanto del sector público como del privado, que el APP. La diferencia clave entre
+el APP y el PEPP es que, en el marco de este último, las compras se realizan de manera
+flexible, por lo que se permiten fluctuaciones en su distribución tanto a lo largo del tiempo
+como por jurisdicciones o tipos de activo15. De esta manera, el BCE perseguía evitar una
+fragmentación financiera que impidiese o dificultase la transmisión de su política monetaria
+a las condiciones financieras en algunos países del área del euro.
+15 No obstante, en el caso de las compras de bonos públicos su distribución por jurisdicciones continúa guiándose por
+la clave de capital a largo plazo, sin perjuicio de la mencionada aplicación flexible del programa a corto plazo.
+BANCO DE ESPAÑA 16 DOCUMENTO OCASIONAL N.º 2026
+Gráfico 6
+TIPOS DE INTERÉS DE BONOS SOBERANOS A DIEZ AÑOS Y PROGRAMAS DE COMPRA DE VALORES DEL BCE (APP + PEPP)
+1 TIPOS DE INTERÉS DE BONOS SOBERANOS A DIEZ AÑOS 2 PROGRAMA DE COMPRA DE VALORES (APP + PEPP)
+% mm € mm €
+3,0 180 4.500
+Anuncio PEPP. Decisiónpublicada en el Diario Oficial 37 %del PIB
+2,5 del PEPP de la Unión Europea 160 4.000
+2,0 140 29 %del PIB 3.500
+120
+1,5 3.000
+100
+1,0 2.500
+80
+0,5 2.000
+60
+0,0 1.500
+40
+-0,5 20 1.000
+-1,0 0 500
+-1,5 -20 0
+17.2.2020 17.4.2020 17.6.2020 17.8.2020 2016 2017 2018 2019 2020 2021
+ESPAÑA ITALIA ALEMANIA PEPP
+FRANCIA PORTUGAL APP (VALORES PÚBLICOS)
+APP (VALORES PRIVADOS)
+OBJETIVO DE COMPRAS NETAS MENSUALES ILUSTRATIVO (a)
+CARTERA TOTAL APP + PEPP (Escala dcha.)
+APP + PEPP (Escala dcha.)
+FUENTES: Banco Central Europeo y Thomson Reuters Datastream.
+a En el objetivo de compras netas mensuales a partir de septiembre de 2020 (línea azul discontinua), a los 20 mm de euros mensuales aprobados el año
+anterior se ha añadido el importe mensual correspondiente a las compras netas adicionales de 120 mm de euros del APP (aprobadas el 12 de marzo)
+y de 1.350 mm de euros correspondientes al PEPP (aprobado el 18 de marzo, y extendido y aumentado el 4 de junio) que se realizarán hasta junio de
+2021, según el supuesto, a modo ilustrativo, de reparto uniforme de dichas compras hasta junio de 2021 (en la práctica, las compras del PEPP podrán
+distribuirse de forma flexible en el tiempo). Sobre la base de las compras totales anunciadas, el volumen de activos del APP y del PEPP en el balance
+del Eurosistema de junio de 2021 alcanzaría el 37 % del PIB del área del euro en 2019.
+El PEPP se puso en marcha con una dotación inicial de 750 mm de euros hasta
+finales de 2020. Posteriormente, el 4 de junio, se amplió a 1,35 billones de euros hasta al menos
+junio de 2021, y se anunció que se reinvertirá como mínimo hasta el final de 2022 el principal de
+los valores adquiridos según vayan venciendo. El PEPP, junto con las nuevas compras del APP,
+supondrá un aumento de la cartera de los programas de compra de valores del Eurosistema
+hasta el entorno de los 4,4 billones de euros en junio de 2021 (véase gráfico 6.2). A principios
+de septiembre de este año, el PEPP ya acumula compras netas de activos públicos y privados
+por un importe de 497 mm de euros desde su inicio, a finales de marzo, es decir, un 37 % del
+monto total proyectado. En particular, las compras de bonos del sector público de España
+han alcanzado hasta el momento alrededor del 12,9 % (46 mm de euros) del total de compras
+de bonos públicos de los distintos países del área del euro, ligeramente por encima de la
+clave de capital correspondiente (11,92 %), según datos preliminares del BCE al cierre de julio.
+El anuncio del PEPP produjo una notable relajación en las condiciones financieras del área
+del euro. Como se aprecia en el gráfico 6.1, tras el anuncio del PEPP los tipos de interés de
+la deuda soberana descendieron de manera significativa. En la sección 4 se presenta una
+evaluación detallada del impacto inmediato del anuncio del PEPP sobre un conjunto amplio de
+indicadores financieros empleando una metodología de estudio de eventos.
+En la reunión extraordinaria del Consejo de Gobierno del 18 de marzo se acordó,
+además, incluir el papel comercial no financiero dentro de la gama de activos admisibles en
+BANCO DE ESPAÑA 17 DOCUMENTO OCASIONAL N.º 2026
+el marco del programa de compras de bonos corporativos (CSPP, por sus siglas en inglés).
+El papel comercial es un instrumento de deuda a corto plazo comúnmente empleado por
+las empresas. El objetivo de esta medida era reducir las tensiones en el mercado monetario.
+Finalmente, durante el mes de abril el BCE adoptó una serie de medidas
+temporales de flexibilización de los criterios de admisión de los activos de garantía en las
+operaciones de financiación del Eurosistema16. El objetivo principal de estas actuaciones
+es ampliar la capacidad de petición de fondos de los bancos en las operaciones de
+financiación del Eurosistema (MRO, LTRO, TLTRO-III y PELTRO) y, de esta forma, apoyar la
+provisión de crédito bancario a empresas y hogares. En primer lugar, el BCE redujo en un
+20 % los recortes de valoración (haircuts) aplicados a los activos de garantía. Esto permite
+que los bancos obtengan una mayor financiación para un valor dado de los activos
+de garantía. En segundo lugar, se amplió el universo de activos elegibles en los «marcos de
+préstamos adicionales» (ACC, por sus siglas en inglés)17, lo que ha hecho posible que se
+admitan como garantías los préstamos a empresas y autónomos avalados por los Estados
+en respuesta a la pandemia. En tercer lugar, se decidió que todos los activos negociables
+que tuvieran calificación crediticia de grado de inversión (es decir, BBB- o superior) y
+fueran, por tanto, elegibles como colateral a 7 de abril seguirán siéndolo mientras dicha
+calificación no sea rebajada por debajo de un determinado nivel (BB). El objetivo de esta
+última medida es mitigar el impacto sobre el volumen de colateral de las posibles bajadas
+de rating que se produzcan como consecuencia de esta crisis.
+Para concluir esta sección, cabe reseñar que, si bien hasta el momento de la publicación
+de este documento el BCE ha mantenido sus tipos de interés de referencia inalterados desde
+septiembre de 2019, como se ha comentado anteriormente, estos se encuentran en niveles
+históricamente bajos. El tipo de interés negativo del DFR y la orientación hacia el futuro sobre la
+senda esperada de tipos (forward guidance) han contribuido a mantener en niveles altamente
+acomodaticios no solo los tipos de interés libres de riesgo de corto plazo, sino también los de
+medio y largo plazo18. Esto es condición necesaria, pero no suficiente, para garantizar que la
+orientación de la política monetaria sea apropiada: es esencial que los cambios en la curva de
+tipos libre de riesgo se transmitan al coste de financiación de empresas y Gobiernos en los
+mercados de deuda y al coste del crédito bancario. Este último ha sido el objetivo fundamental
+de los programas de compra de activos y las operaciones de financiación implementados por
+el BCE desde el inicio de la crisis del Covid-19. La combinación de ambos mecanismos ha
+ayudado a preservar unas condiciones de financiación holgadas para familias, empresas y
+Gobiernos en toda el área del euro.
+16 Véase el recuadro 3.2 del Informe Anual 2019 del Banco de España para más información.
+17 Estos marcos brindan a los bancos centrales nacionales del Eurosistema la posibilidad de ampliar el universo de
+activos que se admiten en sus jurisdicciones con la inclusión de préstamos bancarios que cumplan unas determinadas
+condiciones.
+18 La formulación actual del forward guidance del BCE establece que el Consejo de Gobierno espera que sus
+tipos de interés «continúen en los niveles actuales, o en niveles inferiores, hasta que observe una convergencia sólida
+de las perspectivas de inflación hasta un nivel suficientemente próximo, aunque inferior, al 2 % en su horizonte de
+proyección, y dicha convergencia se haya reflejado de forma consistente en la evolución de la inflación subyacente».
+Esta formulación vincula, por tanto, el momento futuro en que la institución espera comenzar a elevar sus tipos de
+interés a la evolución tanto observada como prevista de la inflación del área del euro.
+BANCO DE ESPAÑA 18 DOCUMENTO OCASIONAL N.º 2026
+4 El impacto del PEPP
+El objetivo de esta sección es ofrecer una aproximación cuantitativa del impacto del PEPP
+sobre los mercados financieros y la macroeconomía del área del euro y, más en particular,
+de España.
+4.1 Impacto sobre los mercados financieros
+En primer lugar, se emplea una metodología de «análisis de eventos» para identificar el
+impacto inmediato de los anuncios del PEPP sobre los mercados financieros19. El efecto
+de este tipo de anuncios sobre los mercados de capitales constituye uno de los principales
+canales de transmisión de los programas de compra de activos, y en la literatura económica
+recibe el nombre de «efecto stock», ya que recoge las expectativas de los inversores sobre la
+evolución futura del stock de activos financieros adquiridos por el banco central en el marco
+de dichos programas. Como nota de cautela, cabe indicar que esta metodología permite
+realizar solo una evaluación parcial de los efectos del PEPP sobre los mercados financieros,
+ya que no captura otros efectos de este tipo de programas, como los producidos por los
+flujos de compras de activos en el momento en que estas se producen («efectos flujo»). Por
+tanto, en principio, este enfoque puede infravalorar el impacto total de este programa.
+Los gráficos 7.1 y 7.2 muestran el efecto del anuncio inicial del PEPP, el 18 de
+marzo (barras azules), y del posterior anuncio de su ampliación, el 4 de junio (barras rojas),
+sobre diversos indicadores bursátiles, el tipo de cambio euro/dólar, las rentabilidades y los
+diferenciales de deuda soberana a diez años, así como sobre las expectativas de inflación
+obtenidas a partir de swaps de inflación. Los resultados indican que tanto el anuncio
+inicial del PEPP como, en menor medida, el de su ampliación posterior tuvieron un efecto
+positivo en los principales índices bursátiles del área del euro y de España, así como en
+los correspondientes subíndices del sector bancario, y también que redujeron la volatilidad
+bursátil (véase gráfico 7.1). Asimismo, ambos anuncios causaron fuertes caídas de las
+rentabilidades de la deuda soberana, sobre todo de la italiana y la española, así como de sus
+diferenciales respecto al bono alemán (véase gráfico 7.2). Como se aprecia en los gráficos,
+la ampliación del PEPP del 4 de junio tuvo, en general, un impacto menor que el causado
+por el anuncio inicial del PEPP. Ello puede deberse a dos factores. Primero, al contrario
+que el anuncio inicial, que fue en gran medida inesperado, la ampliación anunciada el 4 de
+19 La metodología de estudio de eventos consiste en calcular la variación de los indicadores financieros de interés en
+una estrecha ventana de tiempo en torno al evento en cuestión, lo cual permite aislar su efecto de otros posibles
+factores, como noticias económicas o, en el contexto actual, epidemiológicas. En este caso, el BCE anunció el PEPP
+en una nota de prensa que se publicó a las 23:45 h del 18 de marzo, con los mercados de capitales europeos ya
+cerrados. Por tanto, se calcula la variación de cada indicador entre el valor de cierre del 18 de marzo (por ejemplo,
+las 17:30 h en el caso de los índices bursátiles) y los primeros 30 minutos de la sesión del 19 de marzo (9:30 h
+para las bolsas). La excepción es el mercado cambiario, que es un mercado continuo. En este caso, se calcula la
+variación del tipo de cambio entre 30 minutos antes y 30 minutos después del anuncio, es decir, entre las 23:15 h
+del 18 de marzo y las 0:15 h del 19 de marzo. En cuanto al anuncio de la ampliación del PEPP del 4 de junio, este
+se realizó de la forma habitual, mediante nota de prensa publicada a las 13:45 h, por lo que se utiliza la ventana entre
+las 13:30 h y las 14:15 h, de forma que la ventana termina de nuevo 30 minutos después del evento. Este estudio del
+impacto del PEPP sobre los mercados financieros se discute en detalle en el recuadro 3.3 del Informe Anual 2019
+del Banco de España.
+BANCO DE ESPAÑA 19 DOCUMENTO OCASIONAL N.º 2026
+Gráfico 7
+EL IMPACTO DE LOS ANUNCIOS DEL PEPP ANALIZADO A TRAVÉS DE UN «ESTUDIO DE EVENTO»
+1 BOLSAS Y TIPOS DE CAMBIO 2 DEUDA SOBERANA Y EXPECTATIVAS DE INFLACIÓN
+% pb
+6 20
+4 0
+2 -20
+0 -40
+-2 -60
+-4 -80
+-6 -100
+-8 -120
+IBEX-35 EURO- IGBM EURO- VSTOXX USD/EUR España Italia Francia AlemaniaDiferenc.Diferenc.Expectat.Expectat.
+STOXX-50 sector STOXX bono bono bono bono ESP-DEU ITA-DEUinflación inflación
+bancario bancos 10 años 10 años 10 años 10 años 1Y1Y 5Y5Y
+VARIACIÓN 18-19 DE MARZO (ANUNCIO INICIAL) VARIACIÓN INTRADÍA 4 DE JUNIO (AMPLIACIÓN)
+FUENTE: Thomson Reuters Datastream.
+junio sí estaba parcialmente descontada por los inversores, si bien el volumen adicional
+finalmente aprobado fue algo mayor de lo esperado20. Segundo, la ampliación del PEPP de
+junio se produjo en un contexto de menores tensiones en los mercados financieros que las
+observadas a mediados de marzo, lo que también pudo implicar un menor impacto sobre
+las condiciones financieras.
+4.2 Impacto macroeconómico
+Una vez analizado el impacto del PEPP sobre los mercados financieros, a continuación se
+utilizan modelos macroeconométricos para estimar su efecto sobre las principales variables
+macroeconómicas del área del euro y la economía española, con especial atención a la inflación
+y el PIB. En particular, se utilizan un modelo dinámico y estocástico de equilibrio general
+(DSGE, por sus siglas en inglés) y un modelo autorregresivo vectorial y estructural (SVAR, por
+sus siglas en inglés). Los modelos DSGE son especialmente indicados para la simulación de
+programas de compra de activos, gracias a sus fundamentos microeconómicos rigurosos
+y a que recogen los efectos de tales programas sobre las expectativas de los agentes
+económicos. No obstante, estos modelos imponen una estructura relativamente rígida a las
+relaciones entre las distintas variables del modelo. Por ello, a modo de examen de robustez,
+se estima un ejercicio alternativo de simulación contrafactual mediante el modelo SVAR.
+Este tipo de modelos permiten relaciones más flexibles entre variables que los DSGE,
+aunque carecen de sus fundamentos microeconómicos y del papel de las expectativas a la
+hora de determinar los efectos de medidas económicas. En el ejercicio con el modelo SVAR
+20 Por ejemplo, una encuesta de la agencia Reuters realizada entre el 11 y el 14 de mayo mostraba que casi la
+mitad de los encuestados esperaban un incremento del PEPP en junio, siendo la mediana de este incremento de
+375 mm de euros, por debajo de los 600 mm finalmente anunciados.
+BANCO DE ESPAÑA 20 DOCUMENTO OCASIONAL N.º 2026
+se simulan, desde abril de 2020, sendas futuras de compras de activos relativas al PEPP en
+línea con las proyectadas en el modelo de equilibrio general, y se comparan con un escenario
+no condicionado, es decir, sin intervención excepcional del BCE mediante el PEPP.
+El modelo DSGE utilizado es el Joint Spain Euro-Area (JoSE)21. Este modelo ha sido
+desarrollado en el Banco de España como herramienta de análisis macroeconómico y de
+política monetaria. Es un modelo de una unión monetaria con dos regiones (que representan,
+respectivamente, a España y al resto del área del euro), e incorpora las distintas fricciones
+nominales, reales y financieras habituales de la literatura de modelos DSGE de gran tamaño
+empleados por bancos centrales22. Los parámetros del modelo están estimados con
+técnicas econométricas de tipo bayesiano, utilizando series macroeconómicas de ambas
+economías. En cada región de la unión monetaria hay varios tipos de agentes económicos:
+hogares, empresas y una autoridad fiscal. Los hogares y las empresas tienen restricciones
+a su nivel de endeudamiento, en forma de un límite proporcional al valor de sus activos de
+garantía (la vivienda en el caso de los hogares y el capital para las empresas).
+Para poder evaluar el impacto de los programas de compra de activos, el modelo JoSE
+incorpora una serie de fricciones financieras adicionales que permiten que el modelo pueda
+recoger el efecto de dichos programas sobre los rendimientos de los activos adquiridos y el
+impacto que ello tiene a su vez sobre la economía real23. El modelo se calibra para replicar
+la elasticidad estimada (mediante estudios de eventos y un modelo de curva de tipos)
+del rendimiento de los bonos soberanos a diez años respecto a las compras de activos del
+BCE24. La elasticidad observada en los datos —y, por tanto, la calibrada en el modelo— es
+algo mayor para España que para el resto del área del euro. Adicionalmente, se consideran
+dos calibraciones alternativas: una basada en la reacción de los rendimientos soberanos
+al anuncio inicial del PEPP, que se caracterizó por una elasticidad relativamente alta, y una
+basada en la experiencia con el PSPP, es decir, el subprograma del APP destinado a la
+compra de bonos del sector público, activo desde 2015, que en general se ha caracterizado
+por una menor elasticidad de los rendimientos de dichos bonos.
+A continuación se simulan con el modelo los efectos de dos anuncios secuenciales
+que aproximan los realizados por el BCE acerca del PEPP. El primero, en consonancia
+con el anuncio inicial del PEPP, el 18 de marzo, es de compras de activos netos por
+valor de 750 mm de euros a lo largo de nueve meses (de abril a diciembre de 2020) sin
+reinversión. El segundo anuncio, en línea con la recalibración del PEPP del 4 de junio, es
+de extensión del programa de compras netas por valor de 600 mm de euros hasta junio de
+2021, hasta alcanzar un total de 1.350 mm de euros, junto con el compromiso por parte del
+banco central de reinvertir al menos hasta final de 2022 los vencimientos de dicha cartera
+21 Véase Aguilar et al. (2020).
+22 Véase Smets y Wouters (2007).
+23 En concreto, siguiendo a Harrison (2017), se introducen costes de ajuste en la composición de las carteras de los
+inversores entre bonos de corto y de largo plazo, de manera que las compras de la autoridad monetaria provocan
+cambios en la rentabilidad media de las carteras y generan efectos sobre la demanda agregada y la inflación.
+24 Véase Eser et al. (2019).
+BANCO DE ESPAÑA 21 DOCUMENTO OCASIONAL N.º 2026
+Gráfico 8
+EFECTOS DINÁMICOS DEL PEPP EN EL MODELO DSGE
+1 RENDIMIENTO DE LOS BONOS A LARGO PLAZO 2 NIVEL DEL PIB
+pb %
+0 2,0
+-10
+-20 1,5
+-30
+-40
+1,0
+-50
+-60
+0,5
+-70
+-80
+-90 0,0
+1 2 3 4 1 2 3 4 1 2 34 1 2 3 4 1 2 3 4 1 2 34
+2020 2021 2022 2020 2021 2022
+3 NIVEL DE EMPLEO 4 INFLACIÓN
+% %
+2,0 2,0
+1,5 1,5
+1,0 1,0
+0,5 0,5
+0,0 0,0
+1 2 3 4 1 2 3 4 1 2 3 4 1 2 3 4 1 2 3 4 1 2 34
+2020 2021 2022 2020 2021 2022
+ÁREA DEL EURO ESPAÑA
+FUENTE: Banco de España.
+a partir del cese de las compras netas25. La simulación se realiza teniendo en cuenta la
+secuencia de los anuncios: inicialmente se simula solo el primer anuncio y, posteriormente,
+ya en el segundo trimestre de la simulación, se introduce el segundo anuncio; esta distinción
+es particularmente importante en modelos con expectativas racionales, como JoSE, en el
+que los agentes anticipan los efectos futuros de las medidas en el momento del anuncio.
+El gráfico 8 muestra el efecto conjunto (respecto de un escenario contrafactual
+sin PEPP) de ambos anuncios del PEPP sobre las principales variables de interés en el
+modelo DSGE. Se muestran los efectos tanto para España como para el área del euro en
+su conjunto, para el escenario de baja elasticidad de los rendimientos de deuda soberana.
+En este modelo, una vez que el anuncio de compras de bonos reduce los tipos de interés
+25 Si bien los anuncios del PEPP no indicaban una distribución concreta de las compras netas por tipo de activos
+(públicos frente a privados), para este ejercicio se hace el supuesto de que un 90 % del total de las compras anunciadas
+se destina a la adquisición de activos del sector público, en línea (aproximadamente) con el porcentaje efectivo de
+compras de activos públicos realizadas bajo el PEPP hasta la fecha. Por otro lado, se establece por simplicidad el
+supuesto de distribución lineal de las compras netas durante el horizonte comprometido en cada momento, si bien,
+como se ha comentado, en la práctica las compras del PEPP podrán distribuirse de forma flexible en el tiempo.
+BANCO DE ESPAÑA 22 DOCUMENTO OCASIONAL N.º 2026
+a largo plazo y, por tanto, la rentabilidad media de la cartera de inversión, los hogares
+reducen su ahorro y aumentan su nivel de gasto, y las empresas aumentan su inversión y
+su contratación de trabajadores. Estos efectos se ven amplificados por el impacto positivo
+que el programa de compras ejerce sobre el valor de los activos de garantía empleados
+por hogares y empresas a la hora de pedir crédito, lo cual les permite aumentar su
+endeudamiento y financiar mayores niveles de consumo e inversión. El aumento de la
+demanda agregada hace que se eleven el PIB y el empleo. La mayor actividad genera
+un aumento de los costes de las empresas, que presiona al alza sobre la inflación. Los
+efectos encontrados son mayores para España que para el área del euro en su conjunto,
+debido, principalmente, a la mayor elasticidad de la rentabilidad de la deuda española a
+las compras de activos de la autoridad monetaria26.
+Por su parte, en el modelo SVAR, de frecuencia mensual, interaccionan un amplio
+espectro de precios de activos financieros con el estado macroeconómico de los 19 países
+del área del euro para el período 2007-201927. El modelo, de carácter global, explota la
+variación existente entre las variables de las economías que conforman el área del euro y
+tiene en cuenta de forma explícita las interdependencias entre países. Resulta importante
+mencionar que, técnicamente, el modelo integra una estrategia de identificación capaz de
+distinguir los efectos macroeconómicos de medidas de política monetaria no convencional a
+través de innovaciones en el tamaño de algunos componentes del balance del Eurosistema28.
+Para estimar el impacto del PEPP se comparan las predicciones del modelo condicionado a
+la evolución del balance del Eurosistema, incluyendo el PEPP, con el escenario contrafactual
+en el que el PEPP no hubiese sido activado29.
+Como se ha explicado, la utilidad del modelo SVAR consiste en proporcionar una
+evaluación alternativa de los efectos del PEPP a la del modelo DSGE, con menos supuestos
+estructurales y, por tanto, con mayor flexibilidad a la hora de replicar las relaciones entre
+variables. El gráfico 9 resume de forma sintética los resultados de los distintos modelos (y
+los distintos escenarios en cada modelo) acerca del impacto medio anual del PEPP sobre
+el PIB y la inflación en el período 2020-2022, tanto de España como del área del euro en
+26 Las diferencias en el resto de los parámetros de ambas economías también contribuyen a explicar el mayor
+impacto sobre la economía española en términos de PIB y empleo en estas simulaciones. En cambio, en el caso
+de la inflación ocurre lo contrario: debido a las menores rigideces nominales estimadas para el resto del área, la
+inflación reacciona más en el conjunto del área del euro que en España.
+27 El modelo SVAR explota las interdependencias entre variables específicas por país (crecimiento del PIB real, inflación
+de precios al consumo armonizado, nuevas operaciones y coste del crédito, precios de la bolsa y tipos de cambio
+efectivo) con variables comunes ponderadas por su peso en actividad y comercio, como el total de activos del BCE,
+la tasa MRO, el spread entre el eonia y el MRO, el índice CISS —que mide el riesgo de estrés sistémico—, swaps de
+inflación y tipos de interés sombra —aquellos capaces de captar la postura de política monetaria cuando se llega al
+límite inferior cero de los tipos de interés oficiales—. Para más detalles, véase Burriel y Galesi (2018).
+28 Existen diferentes enfoques para identificar shocks de política monetaria no convencional en el contexto de modelos
+SVAR; entre ellos, uno de los más populares ha sido utilizar las innovaciones en el balance del banco central (tamaño,
+componentes, etc.), en línea con Boeckx et al. (2017) o Gambetti y Musso (2017). En particular, en cuanto que un
+shock expansivo de política monetaria convencional podría tener los mismos efectos en el balance del BCE que
+otro shock monetario de carácter no convencional, se acostumbran a imponer y combinar restricciones de signo cero
+en la tasa de política monetaria, como es nuestro caso o el de Gambacorta et al. (2014).
+29 A partir de los resultados por país, se construye el agregado del área del euro ponderando por su peso relativo en
+términos de PIB. Ejercicios de simulación similares se encuentran en Altavilla et al. (2019), Rostagno et al. (2019) o
+Mandler y Scharnagl (2020).
+BANCO DE ESPAÑA 23 DOCUMENTO OCASIONAL N.º 2026
+Gráfico 9
+SIMULACIÓN DE LOS EFECTOS DEL PEPP SEGÚN LOS MODELOS DSGE Y SVAR
+1 NIVEL DEL PIB 2 INFLACIÓN
+%
+%
+2,5 2,5
+2,0 2,0
+1,5 1,5
+1,0 1,0
+0,5 0,5
+0,0 0,0
+-0,5 -0,5
+Área del España Área del España Área del España Área del España Área del España Área del España
+euro euro euro euro euro euro
+2020 2021 2022 2020 2021 2022
+RANGO ENTRE MODELOS (a) MEDIANA
+FUENTE: Banco de España.
+a Mediana y rangos de resultados para los efectos sobre el nivel del PIB y sobre la inflación en España y el área del euro.
+su conjunto. La mediana de las simulaciones de los modelos indica que el PEPP tendría un
+impacto máximo sobre el nivel del PIB real del área del euro de cerca del 1,3 %, el cual se
+alcanzaría en 2021. Por su parte, el impacto máximo sobre la inflación del área del euro sería
+de 1,3 puntos porcentuales, también en 2021. Para el caso español, el impacto máximo
+sobre el PIB sería algo mayor, del 1,4 % del PIB, en consonancia con los mayores efectos
+estimados del PEPP sobre los rendimientos de la deuda soberana española. En términos
+de empleo, según el modelo DSGE, las ganancias medias anuales serían mayores también
+en España que en el resto del área: el efecto máximo sucedería en 2021, cuando el nivel de
+empleo llegaría a aumentar entre un 0,6 % y un 1 % en el área del euro, y entre un 1,1 % y un
+1,7 % en España, dependiendo del escenario utilizado30. Por lo tanto, los resultados de los
+modelos macroeconómicos sugieren que el PEPP podría tener un efecto de primer orden
+sobre la actividad económica, el empleo y la inflación en el área del euro y en España.
+No obstante, es importante destacar el grado de incertidumbre en estas estimaciones,
+sobre todo en el caso español. Las estimaciones mostradas son, probablemente, una
+cuantificación conservadora de la efectividad del PEPP. En particular, las herramientas utilizadas
+en estos cálculos no están diseñadas para capturar el beneficio de prevenir dinámicas no
+lineales adversas, que se traducirían en efectos contractivos potencialmente mucho mayores,
+provocados por un mayor endurecimiento de las condiciones financieras en ausencia de una
+actuación decidida por parte de la autoridad monetaria.
+30 El modelo SVAR no incluye como variable el empleo, por lo que no se ha considerado para este análisis.
+BANCO DE ESPAÑA 24 DOCUMENTO OCASIONAL N.º 2026
+5 Consideraciones finales
+Las medidas de política monetaria adoptadas por el BCE en respuesta a la crisis del
+Covid-19 han tenido un efecto estabilizador en los mercados financieros y en la economía
+del área del euro y de España. En particular, la actuación del BCE ha contribuido
+decisivamente a suavizar las condiciones financieras en todos los países del área del
+euro y, de esta forma, a evitar la aparición de círculos de retroalimentación adversos entre
+los mercados financieros y la economía real. Ello ha permitido respaldar la confianza
+de los agentes económicos, con los consiguientes efectos beneficiosos sobre la actividad
+económica y el empleo, así como sobre las perspectivas de inflación. El análisis presentado
+en este documento proporciona evidencia en esta dirección.
+A pesar del apoyo a la recuperación económica de las medidas adoptadas por el
+BCE, las perspectivas de inflación de medio plazo permanecen, no obstante, claramente
+por debajo de su objetivo. En este sentido, el Consejo de Gobierno ha comunicado en
+reiteradas ocasiones que está preparado para ajustar todos sus instrumentos de la forma
+adecuada para asegurar que la inflación avance hacia su objetivo de manera sostenida.
+De cara al futuro, el alto grado de incertidumbre sobre la evolución de la pandemia o
+sobre la posible persistencia del impacto económico inicial en el tejido productivo hace
+que la política monetaria deba permanecer vigilante y, si es necesario, actuar de nuevo
+con la misma determinación mostrada hasta ahora.
+BANCO DE ESPAÑA 25 DOCUMENTO OCASIONAL N.º 2026
+Bibliografía
+Aguilar, P., G. Almeida, S. Hurtado y O. Rachedi (2020). JoSE: Joint Spain Euro Area Model, Documentos
+Ocasionales, Banco de España, de próxima publicación.
+Altavilla C., L. Burlon, M. Giannetti y S. Holton (2019). Is there a zero lower bound? The real effects of negative
+interest rates, Documentos de Trabajo, n.º 2289, Banco Central Europeo.
+Alves, P., R. Blanco, S. Mayordomo, F. Arrizabalaga, J. Delgado, G. Jiménez, E. Pérez Asenjo, C. Pérez Montes
+y C. Trucharte (2020). «Evolución reciente de la financiación y del crédito bancario al sector privado no
+financiero», Artículos Analíticos, Boletín Económico, 4/2020, Banco de España.
+Arce, Ó., G. Nuño y C. Thomas (2019). «La política monetaria del Eurosistema tras el final de las compras netas
+de activos», Artículos Analíticos, Boletín Económico, 1/2019, Banco de España.
+Banco de España (2016). «El efecto de las políticas monetarias del BCE en el período reciente», capítulo 3
+del Informe Anual 2015.
+— (2019). «El diseño de la política monetaria en el medio y en el largo plazo», capítulo 3 del Informe Anual 2018.
+— (2020). «El papel de las políticas económicas ante la pandemia en el plano internacional», capítulo 3 del Informe
+Anual 2019.
+Boeckx, J., M. Dossche y G. Peersman (2017). «Effectiveness and transmission of the ECB’s balance sheet
+policies», International Journal of Central Banking, 13(1), pp. 297-333.
+Brunnermeier, M. K., y Y. Koby (2018). The Reversal Interest Rate, NBER Working Paper, n.º 25406.
+Burriel, P., y A. Galesi. (2018). «Uncovering the heterogeneous effects of ECB unconventional monetary policies
+across euro area countries», European Economic Review, vol. 101, pp. 210-229.
+Eggertsson, G., y M. Woodford (2003). «The Zero Bound on Interest Rates and Optimal Monetary Policy», Brookings
+Papers on Economic Activity, 34(1), pp. 139-235.
+Eser, F., W. Lemke, K. Nyholm, S. Radde y A. Vladu (2019). Tracing the Impact of the ECB’s Asset Purchase
+Programme on the Yield Curve, Documentos de Trabajo, n.º 2293, Banco Central Europeo.
+Fiorentini, G., A. Galesi, G. Pérez-Quirós y E. Sentana (2018). The rise and fall of the natural interest rate,
+Documentos de Trabajo, n.º 1822, Banco de España.
+Galesi, A., G. Nuño y C. Thomas (2017). «El tipo de interés natural: concepto, determinantes e implicaciones para
+la política monetaria», Artículos Analíticos, Boletín Económico, 1/2017, Banco de España.
+Gambacorta, L., B. Hofmann, y G. Peersman (2014). «The effectiveness of unconventional monetary policy at the
+zero lower bound: A cross-country analysis», Journal of Money, Credit and Banking, 46(4), pp. 615-642.
+Gambetti, L., y A. Musso (2017). «The macroeconomic impact of the ECB’s expanded asset purchase programme
+(APP)», Documentos de Trabajo, n.º 2075, Banco Central Europeo.
+Harrison, R. (2017). Optimal Quantitative Easing, Documentos de Trabajo, n.º 678, Banco de Inglaterra.
+Holston, K., T. Laubach y J. Williams (2017). «Measuring the natural rate of interest: international trends and
+determinants», Journal of International Economics, n.º 108, pp. 59-75.
+Mandler, M., y M. Scharnagl (2020). Estimating the effects of the Eurosystem’s asset purchase programme at the
+country level, Deutsche Bundesbank Discussion Paper, n.º 29/2020.
+Rostagno, M., C. Altavilla, G. Carboni, W. Lemke, R. Motto, A. Saint Guilhem y J. Yiangou (2019). A tale of two
+decades: the ECB’s monetary policy at 20, Documentos de Trabajo, n.º 2346, Banco Central Europeo.
+Smets, F., y R. Wouters. (2007). «Shocks and Frictions in US Business Cycles: A Bayesian DSGE Approach»,
+American Economic Review, 97(3), American Economic Association, pp. 586-606.
+Summers, L. (2014). «US economic prospects: secular stagnation, hysteresis, and the zero lower bound», Business
+Economics, n.º 49, pp. 65-73.
+Vayanos, D., y J. Vila (2009). «A preferred-habitat model of the term structure of interest rates», NBER Working
+Paper Series, n.º 15487.
+BANCO DE ESPAÑA 26 DOCUMENTO OCASIONAL N.º 2026
+PUBLICACIONES DEL BANCO DE ESPAÑA
+DOCUMENTOS OCASIONALES
+1801 ANA ArENCIbIA PArEjA, ANA GóMEz LOSCOS, MErCEDES DE LUIS LóPEz y GAbrIEL PérEz QUIróS:
+A short-term forecasting model for the Spanish economy: GDP and its demand components.
+1802 MIGUEL ALMUNIA, DAVID LóPEz-rODrÍGUEz y ENrIQUE MOrAL-bENITO: Evaluating the macro-
+representativeness of a firm-level database: an application for the Spanish economy.
+1803 PAbLO HErNáNDEz DE COS, DAVID LóPEz rODrÍGUEz y jAVIEr j. PérEz: Los retos del desapalancamiento público.
+(Existe una versión en inglés con el mismo número).
+1804 OLyMPIA bOVEr, LAUrA CrESPO, CArLOS GENTO y ISMAEL MOrENO: The spanish survey of household
+finances (EFF): Description and methods of the 2014 wave.
+1805 ENrIQUE MOrAL-bENITO: The microeconomic origins of the Spanish boom.
+1806 brINDUSA ANGHEL, HENrIQUE bASSO, OLyMPIA bOVEr, jOSé MArÍA CASADO, LAUrA HOSPIDO, MArIO
+IzQUIErDO, IVAN A. KATAryNIUK, AITOr LACUESTA, jOSé MANUEL MONTErO y ELENA VOzMEDIANO:
+La desigualdad de la renta, el consumo y la riqueza en España. (Existe una versión en inglés con el mismo número).
+1807 MAr DELGADO-TéLLEz y jAVIEr j. PérEz: Institutional and economic determinants of regional public debt in Spain.
+1808 chEnxu Fu y ENrIQUE MOrAL-bENITO: The evolution of Spanish total factor productivity since the Global
+Financial crisis.
+1809 concha arToLa, aLEjanDro FIorITo, María GIL, javIEr j. PérEz, aLbErTo urTaSun y DIEGO VILA:
+Monitoring the Spanish economy from a regional perspective: main elements of analysis.
+1810 DAVID LóPEz-rODrÍGUEz y CrISTINA GArCÍA CIrIA: Estructura impositiva de España en el contexto de la Unión
+Europea.
+1811 jOrGE MArTÍNEz: Previsión de la carga de intereses de las administraciones Públicas.
+1901 CArLOS CONESA: bitcoin: ¿una solución para los sistemas de pago o una solución en busca de problema? (Existe una
+versión en inglés con el mismo número).
+1902 AITOr LACUESTA, MArIO IzQUIErDO y SErGIO PUENTE: un análisis del impacto de la subida del salario mínimo
+interprofesional en 2017 sobre la probabilidad de perder el empleo. (Existe una versión en inglés con el mismo número).
+1903 EDUArDO GUTIérrEz CHACóN y CéSAr MArTÍN MACHUCA: Exporting Spanish firms. Stylized facts and trends.
+1904 MArÍA GIL, DANILO LEIVA-LEON, jAVIEr j. PérEz y ALbErTO UrTASUN: An application of dynamic factor models
+to nowcast regional economic activity in Spain.
+1905 jUAN LUIS VEGA (COOrDINADOr): Brexit: balance de situación y perspectivas. (Existe una versión en inglés con el
+mismo número).
+1906 jOrGE E. GALáN: Measuring credit-to-GDP gaps. The hodrick-Prescott filter revisited.
+1907 VÍCTOr GONzáLEz-DÍEz y ENrIQUE MOrAL-bENITO: El proceso de cambio estructural de la economía española
+desde una perspectiva histórica. (Existe una versión en inglés con el mismo número).
+1908 PANA ALVES, DANIEL DEjUáN y LAUrENT MAUrIN: can survey-based information help assess investment gaps in
+the Eu?
+1909 OLyMPIA bOVEr, LAUrA HOSPIDO and ErNESTO VILLANUEVA: The Survey of Financial Competences (EcF):
+description and methods of the 2016 wave.
+1910 LUIS jULIáN áLVArEz: El índice de precios de consumo: usos y posibles vías de mejora.
+1911 ANTOINE bErTHOU, áNGEL ESTrADA, SOPHIE HAINCOUrT, ALExANDEr KADOw, MOrITz A. rOTH
+y MArIE-ELISAbETH DE LA SErVE: Assessing the macroeconomic impact of brexit through trade and migration
+channels.
+1912 roDoLFo caMPoS y jACOPO TIMINI: An estimation of the effects of brexit on trade and migration.
+1913 DUNCAN VAN LIMbErGEN, MArCO HOEbErICHTS, ANA DE ALMEIDA y TErESA SASTrE: A tentative
+exploration of the effects of brexit on foreign direct investment vis-à-vis the United Kingdom.
+1914 MArÍA DOLOrES GADEA-rIVAS, ANA GóMEz-LOSCOS y EDUArDO bANDréS: Ciclos económicos y clusters
+regionales en Europa.
+1915 MArIO ALLOzA y PAbLO bUrrIEL: La mejora de la situación de las finanzas públicas de las corporaciones Locales
+en la última década.
+1916 ANDréS ALONSO y jOSé MANUEL MArQUéS: Financial innovation for a sustainable economy. (Existe una versión en
+inglés con el mismo número).
+2001 áNGEL ESTrADA, LUIS GUIrOLA, IVáN KATAryNIUK y jAIME MArTÍNEz-MArTÍN: The use of bVArs in the analysis
+of emerging economies.
+2002 DAVID LóPEz-rODrÍGUEz y M.ª DE LOS LLANOS MATEA: La intervención pública en el mercado del alquiler de
+vivienda: una revisión de la experiencia internacional. (Existe una versión en inglés con el mismo número).
+2003 OMAr rACHEDI: Structural transformation in the Spanish economy.
+2004 MIGUEL GArCÍA-POSADA, áLVArO MENéNDEz y MArISTELA MULINO: Determinants of investment in tangible
+and intangible fixed assets.
+2005 jUAN AyUSO y CArLOS CONESA: una introducción al debate actual sobre la moneda digital de banco central (cbDc).
+2006 PILAr CUADrADO, ENrIQUE MOrAL-bENITO and IrUNE SOLErA: A sectoral anatomy of the Spanish productivity
+puzzle.
+2007 SonSoLES GaLLEGo, PILar L’hoTELLErIE-FaLLoIS y xAVIEr SErrA: La efectividad de los programas del FMI en
+la última década.
+2008 rUbéN OrTUñO, jOSé M. SáNCHEz, DIEGO áLVArEz, MIGUEL LóPEz y FErnanDo LEón: Neurometrics applied
+to banknote and security features design.
+2009 PabLo burrIEL, PanaGIoTIS chronIS, MaxIMILIan FrEIEr, SEbaSTIan hauPTMEIEr, LukaS rEISS,
+DAN STEGArESCU y STEFan van ParyS: a fiscal capacity for the euro area: lessons from existing fiscal-federal
+systems.
+2010 MIGUEL áNGEL LóPEz y M.ª DE LOS LLANOS MATEA: El sistema de tasación hipotecaria en España.
+Una comparación internacional.
+2011 DIrECCIóN GENErAL DE ECONOMÍA y ESTADÍSTICA: La economía española en 2019. (Existe una versión en inglés
+con el mismo número).
+2012 MarIo aLLoza, MarIEn FErDInanDuSSE, PaScaL jacquInoT y KATjA SCHMIDT: Fiscal expenditure spillovers in
+the euro area: an empirical and model-based assessment.
+2013 DIrECCIóN GENErAL DE ECONOMÍA y ESTADÍSTICA: El mercado de la vivienda en España entre 2014 y 2019.
+(Existe una versión en inglés con el mismo número).
+2014 óSCAr ArCE, IVáN KATAryNIUK, PALOMA MArÍN y jAVIEr j. PérEz: reflexiones sobre el diseño de un Fondo de
+recuperación europeo. (Existe una versión en inglés con el mismo número).
+2015 MIGUEL OTErO IGLESIAS y ELENA VIDAL MUñOz: Las estrategias de internacionalización de las empresas chinas.
+2016 EVA OrTEGA y CHIArA OSbAT: Exchange rate pass-through in the euro area and EU countries.
+2017 ALICIA DE QUINTO, LAUrA HOSPIDO y CArLOS SANz: The child penalty in Spain.
+2018 LUIS j. áLVArEz y MóNICA COrrEA-LóPEz: Inflation expectations in euro area Phillips curves.
+2019 Lucía cuaDro-SáEz, FErnanDo S. LóPEz-vIcEnTE, SuSana PárraGa roDríGuEz y FrancESca vIanI:
+Medidas de política fiscal en respuesta a la crisis sanitaria en las principales economías del área del euro, Estados
+Unidos y reino Unido. (Existe una versión en inglés con el mismo número).
+2020 rObErTO bLANCO, SErGIO MAyOrDOMO, áLVArO MENéNDEz y MArISTELA MULINO: Las necesidades
+de liquidez y la solvencia de las empresas no financieras españolas tras la perturbación del covid-19. (Existe una
+versión en inglés con el mismo número).
+2021 Mar DELGaDo-TéLLEz, Iván kaTarynIuk, FErnanDo LóPEz-vIcEnTE y jAVIEr j. PérEz: Endeudamiento
+supranacional y necesidades de financiación en la unión Europea. (Existe una versión en inglés con el mismo número).
+2022 EDUArDO GUTIérrEz y ENrIQUE MOrAL-bENITO: Medidas de contención, evolución del empleo y propagación
+del Covid-19 en los municipios españoles. (Existe una versión en inglés con el mismo número).
+2023 PAbLO HErNáNDEz DE COS: La economía española ante la crisis del covid-19. comparecencia ante la comisión de
+Asuntos Económicos y Transformación Digital del Congreso de los Diputados,18 de mayo de 2020. (Existe una versión
+en inglés con el mismo número).
+2024 PAbLO HErNáNDEz DE COS: Los principales retos de la economía española tras el covid-19. comparecencia en
+la Comisión para la reconstrucción Social y Económica de España tras el Covid-19 / Congreso de los Diputados,
+el 23 de junio de 2020 (Existe una versión en inglés con el mismo número).
+2025 ENrIQUE ESTEbAN GArCÍA-ESCUDErO y ELISA j. SáNCHEz PérEz: Los swaps de divisas entre bancos centrales
+(Existe una versión en inglés con el mismo número).
+2026 PAbLO AGUILAr, óSCAr ArCE, SAMUEL HUrTADO, jAIME MArTÍNEz-MArTÍN, GALO NUñO y CArLOS
+THOMAS: La respuesta de la política monetaria del banco central Europeo frente a la crisis del covid-19.
+Unidad de Servicios Generales I
+Alcalá, 48 - 28014 Madrid
+E-mail: publicaciones@bde.es
+www.bde.es
