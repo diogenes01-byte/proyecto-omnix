@@ -1,1 +1,0 @@
-print("EcoRAG project started")
