@@ -1,56 +1,78 @@
-const userInput = document.getElementById("user-input");
-const chatContainer = document.querySelector(".chat-container");
-const sendBtn = document.querySelector(".send-btn");
+document.addEventListener("DOMContentLoaded", () => {
 
-// Función para agregar un mensaje al chat
-function addMessage(text, sender = "bot") {
-    const messageDiv = document.createElement("div");
-    messageDiv.classList.add("message", sender);
+    const userInput = document.getElementById("user-input");
+    const chatContainer = document.querySelector(".chat-container");
+    const sendBtn = document.querySelector(".send-btn");
 
-    const avatarDiv = document.createElement("div");
-    avatarDiv.classList.add("message-avatar");
-    avatarDiv.textContent = sender === "bot" ? "📊" : "👤";
+    // Agregar mensajes al chat
+    function addMessage(text, sender = "bot") {
+        const messageDiv = document.createElement("div");
+        messageDiv.classList.add("message", sender);
 
-    const contentDiv = document.createElement("div");
-    contentDiv.classList.add("message-content");
+        const avatarDiv = document.createElement("div");
+        avatarDiv.classList.add("message-avatar");
+        avatarDiv.textContent = sender === "bot" ? "📊" : "👤";
 
-    const textDiv = document.createElement("div");
-    textDiv.classList.add("message-text");
-    textDiv.textContent = text;
+        const contentDiv = document.createElement("div");
+        contentDiv.classList.add("message-content");
 
-    contentDiv.appendChild(textDiv);
-    messageDiv.appendChild(avatarDiv);
-    messageDiv.appendChild(contentDiv);
+        const textDiv = document.createElement("div");
+        textDiv.classList.add("message-text");
+        textDiv.textContent = text;
 
-    chatContainer.appendChild(messageDiv);
-    chatContainer.scrollTop = chatContainer.scrollHeight;
-}
+        contentDiv.appendChild(textDiv);
+        messageDiv.appendChild(avatarDiv);
+        messageDiv.appendChild(contentDiv);
 
-// Función para enviar la pregunta (simulación)
-function sendQuestion() {
-    const question = userInput.value.trim();
-    if (!question) return;
-
-    addMessage(question, "user"); // mensaje del usuario
-    userInput.value = "";
-
-    // Mensaje temporal
-    addMessage("Thinking...", "bot");
-
-    // Simular respuesta después de 1 segundo
-    setTimeout(() => {
-        const lastBotMessage = chatContainer.querySelector(".message.bot:last-child .message-text");
-        if (lastBotMessage.textContent === "Thinking...") {
-            lastBotMessage.textContent = "This is a simulated answer. The ECB aims to maintain inflation around 2% target.";
-        }
-    }, 1000);
-}
-
-// Eventos
-sendBtn.addEventListener("click", sendQuestion);
-userInput.addEventListener("keydown", (e) => {
-    if (e.key === "Enter" && !e.shiftKey) {
-        e.preventDefault();
-        sendQuestion();
+        chatContainer.appendChild(messageDiv);
+        chatContainer.scrollTop = chatContainer.scrollHeight;
     }
+
+    // Enviar pregunta al backend REAL
+    async function sendQuestion() {
+        const question = userInput.value.trim();
+        if (!question) return;
+
+        addMessage(question, "user");
+        userInput.value = "";
+
+        // Mensaje temporal
+        addMessage("Thinking...", "bot");
+
+        try {
+            const response = await fetch("http://127.0.0.1:8000/query", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ question: question })
+            });
+
+            const data = await response.json();
+
+            const lastBotMessage = chatContainer.querySelector(".message.bot:last-child .message-text");
+
+            if (data.answer) {
+                lastBotMessage.textContent = data.answer;
+            } else {
+                lastBotMessage.textContent = "No response received from server.";
+            }
+
+        } catch (error) {
+            const lastBotMessage = chatContainer.querySelector(".message.bot:last-child .message-text");
+            lastBotMessage.textContent = "Error connecting to backend.";
+            console.error(error);
+        }
+    }
+
+    // Eventos
+    sendBtn.addEventListener("click", sendQuestion);
+
+    userInput.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" && !e.shiftKey) {
+            e.preventDefault();
+            sendQuestion();
+        }
+    });
+
 });
