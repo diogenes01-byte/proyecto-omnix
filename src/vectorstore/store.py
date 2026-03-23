@@ -1,58 +1,107 @@
 import faiss
 import numpy as np
-from src.embeddings.embedder import generate_embeddings
+import pickle
+from typing import List, Dict, Any, Optional
+
+from sentence_transformers import CrossEncoder
 
 
 class VectorStore:
+    def __init__(
+        self,
+        embedding_dim: int,
+        use_reranker: bool = False,
+        reranker_model: str = "cross-encoder/ms-marco-MiniLM-L-6-v2"
+    ):
+        # FAISS index (cosine similarity via inner product after normalization)
+        self.index = faiss.IndexFlatIP(embedding_dim)
 
-    def __init__(self):
-        self.index = None
-        self.texts = []
-        self.metadata = []
+        self.texts: List[str] = []
+        self.metadata: List[Dict[str, Any]] = []
 
-    def build_index(self):
-        data = generate_embeddings()
+        # Reranker opcional
+        self.use_reranker = use_reranker
+        self.reranker = CrossEncoder(reranker_model) if use_reranker else None
 
-        embeddings = np.array([d["embedding"] for d in data]).astype("float32")
+    # -------------------------
+    # Utilities
+    # -------------------------
+    def _normalize(self, vectors: np.ndarray) -> np.ndarray:
+        norms = np.linalg.norm(vectors, axis=1, keepdims=True)
+        return vectors / (norms + 1e-10)
 
-        self.texts = [d["text"] for d in data]
-        self.metadata = [{"source": d["source"], "chunk_id": d["chunk_id"]} for d in data]
+    # -------------------------
+    # Add documents
+    # -------------------------
+    def add_documents(
+        self,
+        embeddings: np.ndarray,
+        texts: List[str],
+        metadata: Optional[List[Dict[str, Any]]] = None
+    ):
+        embeddings = self._normalize(embeddings)
 
-        dim = embeddings.shape[1]
-        self.index = faiss.IndexFlatL2(dim)
         self.index.add(embeddings)
+        self.texts.extend(texts)
 
-        print(f"Index creado con {self.index.ntotal} vectores")
+        if metadata:
+            self.metadata.extend(metadata)
+        else:
+            self.metadata.extend([{} for _ in texts])
 
-    def search(self, query_embedding, k=5):
+    # -------------------------
+    # Load from pickle (NEW)
+    # -------------------------
+    def load_from_pickle(self, path: str):
+        """
+        Carga embeddings, textos y metadata desde el .pkl generado por el embedder
+        """
+        with open(path, "rb") as f:
+            chunks = pickle.load(f)
+
+        if not chunks:
+            raise ValueError("El archivo pickle está vacío")
+
+        # Extraer datos
+        embeddings = np.array([c["embedding"] for c in chunks]).astype("float32")
+        texts = [c["text"] for c in chunks]
+        metadata = [c.get("metadata", {}) for c in chunks]
+
+        # Cargar en FAISS
+        self.add_documents(embeddings, texts, metadata)
+
+        print(f"✅ VectorStore cargado con {len(texts)} documentos desde {path}")
+
+    # -------------------------
+    # Search with scores
+    # -------------------------
+    def search(
+        self,
+        query_embedding: np.ndarray,
+        k: int = 5,
+        score_threshold: Optional[float] = None,
+        rerank: bool = False
+    ) -> List[Dict[str, Any]]:
+
+        query_embedding = self._normalize(query_embedding)
+
         distances, indices = self.index.search(query_embedding, k)
 
         results = []
-        for i in indices[0]:
+
+        for i, idx in enumerate(indices[0]):
+            if idx == -1:
+                continue
+
+            score = float(distances[0][i])
+
+            if score_threshold is not None and score < score_threshold:
+                continue
+
             results.append({
-                "text": self.texts[i],
-                "metadata": self.metadata[i]
+                "text": self.texts[idx],
+                "metadata": self.metadata[idx],
+                "score": score
             })
 
         return results
-
-
-from sentence_transformers import SentenceTransformer
-from src.config import EMBEDDING_MODEL
-
-if __name__ == "__main__":
-    vs = VectorStore()
-    vs.build_index()
-
-    model = SentenceTransformer(EMBEDDING_MODEL)
-
-    query = "What does the ECB say about inflation?"
-    query_embedding = model.encode([query]).astype("float32")
-
-    results = vs.search(query_embedding, k=3)
-
-    print("\nResultados:\n")
-    for r in results:
-        print(r["metadata"])
-        print(r["text"][:300])
-        print("-" * 50)

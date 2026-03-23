@@ -1,54 +1,90 @@
+import re
 from src.config import CHUNK_SIZE, CHUNK_OVERLAP
 
 
 def split_into_paragraphs(text: str) -> list:
     """
-    Divide el texto en párrafos usando saltos de línea.
+    Divide el texto en párrafos de forma más robusta.
     """
-    paragraphs = [p.strip() for p in text.split("\n") if p.strip()]
+    # Intentar dividir por dobles saltos primero
+    paragraphs = re.split(r"\n\s*\n", text)
+
+    # Si no hay suficientes párrafos, fallback a saltos simples
+    if len(paragraphs) <= 1:
+        paragraphs = text.split("\n")
+
+    # Limpieza básica
+    paragraphs = [p.strip() for p in paragraphs if p.strip()]
+
     return paragraphs
+
+
+def split_long_paragraph(paragraph: str, max_size: int) -> list:
+    """
+    Divide párrafos demasiado largos en segmentos más pequeños.
+    """
+    if len(paragraph) <= max_size:
+        return [paragraph]
+
+    sentences = re.split(r"(?<=[\.\!\?])\s+", paragraph)
+
+    chunks = []
+    current = ""
+
+    for sentence in sentences:
+        if len(current) + len(sentence) > max_size:
+            if current:
+                chunks.append(current.strip())
+            current = sentence
+        else:
+            current += " " + sentence if current else sentence
+
+    if current:
+        chunks.append(current.strip())
+
+    return chunks
 
 
 def build_chunks_from_paragraphs(paragraphs: list, chunk_size: int, overlap: int) -> list:
     """
     Construye chunks agrupando párrafos hasta alcanzar el tamaño objetivo.
-    Aplica overlap entre chunks a nivel de párrafos.
+    Aplica overlap entre chunks a nivel de contenido.
     """
     chunks = []
-    current_chunk = []
+    current_chunk = ""
     current_length = 0
 
     i = 0
 
     while i < len(paragraphs):
         paragraph = paragraphs[i]
-        para_length = len(paragraph)
 
-        # Si añadir este párrafo excede el tamaño, cerramos chunk actual
-        if current_length + para_length > chunk_size and current_chunk:
-            chunks.append(" ".join(current_chunk))
+        # Si el párrafo es demasiado largo, lo fragmentamos
+        sub_paragraphs = split_long_paragraph(paragraph, chunk_size)
 
-            # Aplicar overlap: retroceder algunos párrafos
-            overlap_paragraphs = []
-            overlap_length = 0
+        for sub_p in sub_paragraphs:
+            para_length = len(sub_p)
 
-            for p in reversed(current_chunk):
-                if overlap_length >= overlap:
-                    break
-                overlap_paragraphs.insert(0, p)
-                overlap_length += len(p)
+            if current_length + para_length > chunk_size and current_chunk:
+                chunks.append(current_chunk.strip())
 
-            current_chunk = overlap_paragraphs
-            current_length = overlap_length
+                # Overlap basado en caracteres desde el final
+                overlap_text = current_chunk[-overlap:] if overlap > 0 else ""
+                current_chunk = overlap_text + " " + sub_p
+                current_length = len(current_chunk)
 
-        else:
-            current_chunk.append(paragraph)
-            current_length += para_length
-            i += 1
+            else:
+                if current_chunk:
+                    current_chunk += " " + sub_p
+                else:
+                    current_chunk = sub_p
 
-    # Añadir último chunk si existe
+                current_length += para_length
+
+        i += 1
+
     if current_chunk:
-        chunks.append(" ".join(current_chunk))
+        chunks.append(current_chunk.strip())
 
     return chunks
 
@@ -82,7 +118,7 @@ def process_documents(documents: list) -> list:
 
 
 if __name__ == "__main__":
-    # Test manual (requiere conectar con ingestion + cleaning)
+    import re
     from src.ingestion.load_documents import load_pdfs
     from src.preprocessing.text_cleaner import clean_documents
 

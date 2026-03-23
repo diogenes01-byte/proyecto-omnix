@@ -11,8 +11,8 @@ PROCESSED_DIR = os.path.join(DATA_DIR, "processed")
 VECTORSTORE_DIR = os.path.join(DATA_DIR, "vectorstore")
 
 # Parámetros de chunking
-CHUNK_SIZE = 500
-CHUNK_OVERLAP = 100
+CHUNK_SIZE = 500 # Tamaño base para los chunks, se puede ajustar según necesidades
+CHUNK_OVERLAP = 100 # Superposición entre chunks, se puede ajustar según necesidades
 
 # Modelo de embeddings
 EMBEDDING_MODEL = "all-MiniLM-L6-v2"
