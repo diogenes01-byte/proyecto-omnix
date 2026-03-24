@@ -18,7 +18,7 @@ CHUNK_SIZE = 450 # Tamaño base para los chunks, se puede ajustar según necesid
 CHUNK_OVERLAP = 90 # Superposición entre chunks, se puede ajustar según necesidades
 
 # Modelo de embeddings
-EMBEDDING_MODEL = "all-MiniLM-L6-v2"
+EMBEDDING_MODEL = "text-embedding-3-small"
 
 # LLM (puedes cambiar luego)
 LLM_MODEL = "gpt-4o-mini"
