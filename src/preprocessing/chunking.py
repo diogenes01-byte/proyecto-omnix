@@ -2,40 +2,52 @@ import re
 from src.config import CHUNK_SIZE, CHUNK_OVERLAP
 
 
+# ---------------------------
+# 1. PÁRRAFOS
+# ---------------------------
 def split_into_paragraphs(text: str) -> list:
     """
-    Divide el texto en párrafos de forma más robusta.
+    Divide el texto en párrafos usando saltos de línea dobles.
+    No aplica limpieza adicional (ya se asume texto limpio).
     """
-    # Intentar dividir por dobles saltos primero
     paragraphs = re.split(r"\n\s*\n", text)
 
-    # Si no hay suficientes párrafos, fallback a saltos simples
     if len(paragraphs) <= 1:
         paragraphs = text.split("\n")
 
-    # Limpieza básica
-    paragraphs = [p.strip() for p in paragraphs if p.strip()]
+    # Filtrar párrafos muy pequeños (ruido residual)
+    paragraphs = [p.strip() for p in paragraphs if len(p.strip()) > 40]
 
     return paragraphs
 
 
+# ---------------------------
+# 2. SPLIT POR ORACIONES
+# ---------------------------
+def split_into_sentences(text: str) -> list:
+    """
+    Split simple y robusto basado en puntuación.
+    """
+    sentences = re.split(r'(?<=[.!?])\s+', text)
+    return [s.strip() for s in sentences if len(s.strip()) > 20]
+
+
 def split_long_paragraph(paragraph: str, max_size: int) -> list:
-    """
-    Divide párrafos demasiado largos en segmentos más pequeños.
-    """
     if len(paragraph) <= max_size:
         return [paragraph]
 
-    sentences = re.split(r"(?<=[\.\!\?])\s+", paragraph)
+    sentences = split_into_sentences(paragraph)
 
     chunks = []
     current = ""
 
     for sentence in sentences:
-        if len(current) + len(sentence) > max_size:
+        if len(current) + len(sentence) + 1 > max_size:
             if current:
                 chunks.append(current.strip())
-            current = sentence
+                current = sentence
+            else:
+                chunks.append(sentence[:max_size])
         else:
             current += " " + sentence if current else sentence
 
@@ -45,60 +57,85 @@ def split_long_paragraph(paragraph: str, max_size: int) -> list:
     return chunks
 
 
+# ---------------------------
+# 3. DETECCIÓN DE FINAL DE ORACIÓN
+# ---------------------------
+def get_sentence_boundaries(text: str) -> list:
+    return [m.end() for m in re.finditer(r'[.!?]\s+', text)]
+
+
+# ---------------------------
+# 4. VALIDACIÓN DE CHUNKS
+# ---------------------------
+def is_valid_chunk(text: str) -> bool:
+    """
+    Filtra chunks sin suficiente contenido útil.
+    """
+    if len(text) < 80:
+        return False
+
+    # Heurística simple: presencia de verbos comunes
+    if not re.search(
+        r"\b(is|are|was|were|be|have|has|had|increase|decrease|shows|find)\b",
+        text,
+        re.IGNORECASE,
+    ):
+        return False
+
+    return True
+
+
+# ---------------------------
+# 5. CONSTRUCCIÓN DE CHUNKS
+# ---------------------------
 def build_chunks_from_paragraphs(paragraphs: list, chunk_size: int, overlap: int) -> list:
-    """
-    Construye chunks agrupando párrafos hasta alcanzar el tamaño objetivo.
-    Aplica overlap entre chunks a nivel de contenido.
-    """
     chunks = []
     current_chunk = ""
-    current_length = 0
 
-    i = 0
-
-    while i < len(paragraphs):
-        paragraph = paragraphs[i]
-
-        # Si el párrafo es demasiado largo, lo fragmentamos
+    for paragraph in paragraphs:
         sub_paragraphs = split_long_paragraph(paragraph, chunk_size)
 
         for sub_p in sub_paragraphs:
-            para_length = len(sub_p)
+            if len(current_chunk) + len(sub_p) > chunk_size and current_chunk:
+                # corte en límite de oración
+                boundaries = get_sentence_boundaries(current_chunk)
 
-            if current_length + para_length > chunk_size and current_chunk:
-                chunks.append(current_chunk.strip())
+                if boundaries:
+                    target = min(len(current_chunk), chunk_size)
+                    cut_pos = max([b for b in boundaries if b <= target] or [target])
+                    final_chunk = current_chunk[:cut_pos].strip()
+                else:
+                    final_chunk = current_chunk.strip()
 
-                # Overlap basado en caracteres desde el final
-                overlap_text = current_chunk[-overlap:] if overlap > 0 else ""
-                current_chunk = overlap_text + " " + sub_p
-                current_length = len(current_chunk)
+                if is_valid_chunk(final_chunk):
+                    chunks.append(final_chunk)
+
+                # overlap
+                overlap_text = ""
+                if overlap > 0 and len(current_chunk) > overlap:
+                    overlap_text = current_chunk[-overlap:]
+                    overlap_text = re.sub(r'^\S+\s*', '', overlap_text)
+
+                current_chunk = (overlap_text + " " + sub_p).strip() if overlap_text else sub_p
 
             else:
-                if current_chunk:
-                    current_chunk += " " + sub_p
-                else:
-                    current_chunk = sub_p
+                current_chunk += " " + sub_p if current_chunk else sub_p
 
-                current_length += para_length
-
-        i += 1
-
-    if current_chunk:
+    # último chunk
+    if current_chunk and is_valid_chunk(current_chunk):
         chunks.append(current_chunk.strip())
 
     return chunks
 
 
+# ---------------------------
+# 6. PIPELINE FINAL
+# ---------------------------
 def process_documents(documents: list) -> list:
-    """
-    Recibe documentos ya limpios (con 'clean_text')
-    y devuelve chunks con metadata.
-    """
     all_chunks = []
 
     for doc_id, doc in enumerate(documents):
         text = doc.get("clean_text", "")
-
         if not text:
             continue
 
@@ -117,19 +154,20 @@ def process_documents(documents: list) -> list:
     return all_chunks
 
 
+# ---------------------------
+# TEST
+# ---------------------------
 if __name__ == "__main__":
-    import re
     from src.ingestion.load_documents import load_pdfs
     from src.preprocessing.text_cleaner import clean_documents
 
     docs = load_pdfs()
     clean_docs = clean_documents(docs)
-
     chunks = process_documents(clean_docs)
 
     print(f"Total chunks generados: {len(chunks)}\n")
 
-    for c in chunks[:5]:
+    for c in chunks[:6]:
         print(f"{c['source']} - chunk {c['chunk_id']}")
-        print(c["text"][:300])
-        print("-" * 50)
+        print(repr(c["text"][:350]))
+        print("-" * 60)

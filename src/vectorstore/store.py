@@ -5,6 +5,9 @@ from typing import List, Dict, Any, Optional
 
 from sentence_transformers import CrossEncoder
 
+# RUTA DESDE CONFIG
+from src.config import EMBEDDINGS_FILE
+
 
 class VectorStore:
     def __init__(
@@ -52,7 +55,7 @@ class VectorStore:
     # -------------------------
     # Load from pickle (NEW)
     # -------------------------
-    def load_from_pickle(self, path: str):
+    def load_from_pickle(self, path: str = EMBEDDINGS_FILE):
         """
         Carga embeddings, textos y metadata desde el .pkl generado por el embedder
         """
