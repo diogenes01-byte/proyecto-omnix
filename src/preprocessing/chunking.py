@@ -7,15 +7,18 @@ from src.config import CHUNK_SIZE, CHUNK_OVERLAP
 # ---------------------------
 def split_into_paragraphs(text: str) -> list:
     """
-    Divide el texto en párrafos usando saltos de línea dobles.
-    No aplica limpieza adicional (ya se asume texto limpio).
+    Divide el texto en párrafos.
+    Funciona incluso si los saltos de línea fueron normalizados.
     """
+
+    # Intento 1: párrafos clásicos (doble salto)
     paragraphs = re.split(r"\n\s*\n", text)
 
+    # Fallback: dividir por puntos largos (bloques semánticos)
     if len(paragraphs) <= 1:
-        paragraphs = text.split("\n")
+        paragraphs = re.split(r'(?<=[.!?])\s+', text)
 
-    # Filtrar párrafos muy pequeños (ruido residual)
+    # Filtrar ruido
     paragraphs = [p.strip() for p in paragraphs if len(p.strip()) > 40]
 
     return paragraphs

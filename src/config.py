@@ -22,3 +22,6 @@ EMBEDDING_MODEL = "text-embedding-3-small"
 
 # LLM (puedes cambiar luego)
 LLM_MODEL = "gpt-4o-mini"
+
+# Dimensión de embeddings
+EMBEDDING_DIM = 1536

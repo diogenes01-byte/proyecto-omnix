@@ -3,33 +3,25 @@ import numpy as np
 import pickle
 from typing import List, Dict, Any, Optional
 
-from sentence_transformers import CrossEncoder
-
-# RUTA DESDE CONFIG
-from src.config import EMBEDDINGS_FILE
+from src.config import EMBEDDINGS_FILE, EMBEDDING_DIM
 
 
 class VectorStore:
-    def __init__(
-        self,
-        embedding_dim: int,
-        use_reranker: bool = False,
-        reranker_model: str = "cross-encoder/ms-marco-MiniLM-L-6-v2"
-    ):
-        # FAISS index (cosine similarity via inner product after normalization)
+    def __init__(self, embedding_dim: int = EMBEDDING_DIM):
         self.index = faiss.IndexFlatIP(embedding_dim)
 
         self.texts: List[str] = []
         self.metadata: List[Dict[str, Any]] = []
 
-        # Reranker opcional
-        self.use_reranker = use_reranker
-        self.reranker = CrossEncoder(reranker_model) if use_reranker else None
-
     # -------------------------
-    # Utilities
+    # Normalization
     # -------------------------
     def _normalize(self, vectors: np.ndarray) -> np.ndarray:
+        vectors = np.array(vectors, dtype="float32")
+
+        if len(vectors.shape) == 1:
+            vectors = vectors.reshape(1, -1)
+
         norms = np.linalg.norm(vectors, axis=1, keepdims=True)
         return vectors / (norms + 1e-10)
 
@@ -53,37 +45,31 @@ class VectorStore:
             self.metadata.extend([{} for _ in texts])
 
     # -------------------------
-    # Load from pickle (NEW)
+    # Load from pickle
     # -------------------------
     def load_from_pickle(self, path: str = EMBEDDINGS_FILE):
-        """
-        Carga embeddings, textos y metadata desde el .pkl generado por el embedder
-        """
         with open(path, "rb") as f:
             chunks = pickle.load(f)
 
         if not chunks:
             raise ValueError("El archivo pickle está vacío")
 
-        # Extraer datos
         embeddings = np.array([c["embedding"] for c in chunks]).astype("float32")
         texts = [c["text"] for c in chunks]
         metadata = [c.get("metadata", {}) for c in chunks]
 
-        # Cargar en FAISS
         self.add_documents(embeddings, texts, metadata)
 
-        print(f"✅ VectorStore cargado con {len(texts)} documentos desde {path}")
+        print(f"VectorStore cargado con {len(texts)} documentos desde {path}")
 
     # -------------------------
-    # Search with scores
+    # Search
     # -------------------------
     def search(
         self,
         query_embedding: np.ndarray,
         k: int = 5,
-        score_threshold: Optional[float] = None,
-        rerank: bool = False
+        score_threshold: Optional[float] = None
     ) -> List[Dict[str, Any]]:
 
         query_embedding = self._normalize(query_embedding)

@@ -1,6 +1,5 @@
 import os
 import re
-from pypdf import PdfReader
 from src.config import RAW_DIR
 
 
@@ -15,37 +14,27 @@ def clean_text(text: str) -> str:
     return text.strip()
 
 
-def read_pdf(filepath: str) -> dict:
+def read_md(filepath: str) -> dict:
     """
-    Lee un PDF página por página:
-    - maneja errores por página
-    - concatena texto
-    - devuelve metadatos útiles
+    Lee un archivo Markdown:
+    - devuelve texto limpio
     """
-    reader = PdfReader(filepath)
-    text = ""
-    failed_pages = 0
-
-    for i, page in enumerate(reader.pages):
-        try:
-            extracted = page.extract_text()
-            if extracted:
-                text += extracted + "\n"
-            else:
-                failed_pages += 1
-        except Exception:
-            failed_pages += 1
+    try:
+        with open(filepath, "r", encoding="utf-8") as f:
+            text = f.read()
+    except Exception:
+        text = ""
 
     return {
         "text": clean_text(text),
-        "num_pages": len(reader.pages),
-        "failed_pages": failed_pages
+        "num_pages": 1,        # placeholder para mantener compatibilidad
+        "failed_pages": 0
     }
 
 
 def load_pdfs():
     """
-    Carga todos los PDFs desde RAW_DIR:
+    Carga todos los archivos .md desde RAW_DIR:
     - ordena archivos (consistencia)
     - ignora documentos vacíos
     - añade metadatos para RAG
@@ -53,13 +42,13 @@ def load_pdfs():
     documents = []
 
     for idx, filename in enumerate(sorted(os.listdir(RAW_DIR))):
-        if filename.endswith(".pdf"):
+        if filename.endswith(".md"):
             filepath = os.path.join(RAW_DIR, filename)
 
-            pdf_data = read_pdf(filepath)
+            md_data = read_md(filepath)
 
-            # Validación: ignorar PDFs sin texto
-            if not pdf_data["text"]:
+            # Validación: ignorar documentos vacíos
+            if not md_data["text"]:
                 print(f"[WARNING] Documento vacío ignorado: {filename}")
                 continue
 
@@ -67,9 +56,9 @@ def load_pdfs():
                 "doc_id": idx,
                 "source": filename,
                 "path": filepath,
-                "num_pages": pdf_data["num_pages"],
-                "failed_pages": pdf_data["failed_pages"],
-                "text": pdf_data["text"]
+                "num_pages": md_data["num_pages"],
+                "failed_pages": md_data["failed_pages"],
+                "text": md_data["text"]
             })
 
     return documents

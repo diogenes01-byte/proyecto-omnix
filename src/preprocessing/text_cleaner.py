@@ -51,16 +51,17 @@ def fix_camel_case_and_joined_words(text: str) -> str:
 
 def remove_pdf_noise(text: str) -> str:
     """
-    Limpia ruido típico de PDFs sin ser demasiado agresivo.
+    Limpia ruido ligero sin romper Markdown ni URLs.
     """
 
-    # Eliminar patrones tipo /G69/G67
+    # Eliminar patrones tipo /G69/G67 (ruido típico PDF)
     text = re.sub(r"/[A-Za-z0-9]+", " ", text)
 
-    # Eliminar caracteres no deseados manteniendo puntuación básica
-    text = re.sub(r"[^\w\s\.\,\;\:\-\(\)]", " ", text)
+    # Mantener caracteres de Markdown y URLs
+    # (solo quitamos basura realmente rara)
+    text = re.sub(r"[^\w\s\.\,\;\:\-\(\)\[\]\#\/\:]", " ", text)
 
-    # Eliminar espacios duplicados generados por limpieza anterior
+    # Normalizar espacios
     text = re.sub(r"\s+", " ", text)
 
     return text.strip()
@@ -68,10 +69,10 @@ def remove_pdf_noise(text: str) -> str:
 
 def clean_text(text: str) -> str:
     """
-    Pipeline de limpieza optimizado para PDFs en RAG.
+    Pipeline de limpieza optimizado para RAG.
 
     Orden lógico:
-    1. Limpieza de ruido PDF
+    1. Limpieza base
     2. Corrección de guiones de fin de línea
     3. Unificación de saltos de línea
     4. Reconstrucción de palabras con letras separadas
