@@ -4,11 +4,8 @@ from pydantic import BaseModel, Field
 from typing import List
 import logging
 
-from sentence_transformers import SentenceTransformer
-
 from src.rag.pipeline import RAGPipeline
 from src.vectorstore.store import VectorStore
-from src.config import EMBEDDING_MODEL
 
 # ---------------------------
 # Logging
@@ -29,7 +26,7 @@ app = FastAPI(
 # ---------------------------
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # ajustar en producción
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -63,14 +60,13 @@ def startup_event():
     global rag_pipeline
 
     try:
-        logger.info("Inicializando embedder...")
-        embedder = SentenceTransformer(EMBEDDING_MODEL)
-
-        embedding_dim = embedder.get_sentence_embedding_dimension()
-        logger.info(f"Embedding dimension: {embedding_dim}")
-
         logger.info("Inicializando Vector Store...")
+
+        embedding_dim = 1536  # ajusta si usas otro modelo
+
         vector_store = VectorStore(embedding_dim=embedding_dim)
+
+        vector_store.load_from_pickle()
 
         logger.info("Inicializando RAG Pipeline...")
         rag_pipeline = RAGPipeline(vector_store=vector_store)
@@ -92,18 +88,21 @@ def root():
 @app.post("/api/v1/query", response_model=QueryResponse)
 def query_rag(req: QueryRequest):
     try:
+        if rag_pipeline is None:
+            raise HTTPException(status_code=500, detail="Pipeline no inicializado")
+
         logger.info(f"Pregunta recibida: {req.question}")
 
-        # Ejecutar pipeline
         result = rag_pipeline.query(req.question, k=5)
 
         answer = result["answer"]
         context_chunks = result["context"]
 
         if not context_chunks:
-            raise HTTPException(
-                status_code=404,
-                detail="No se encontró contexto relevante."
+            return QueryResponse(
+                question=req.question,
+                answer="No se encontró contexto relevante en la base de datos.",
+                sources=[]
             )
 
         sources = [

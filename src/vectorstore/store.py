@@ -56,7 +56,16 @@ class VectorStore:
 
         embeddings = np.array([c["embedding"] for c in chunks]).astype("float32")
         texts = [c["text"] for c in chunks]
-        metadata = [c.get("metadata", {}) for c in chunks]
+
+        # 🔥 FIX: reconstrucción correcta de metadata
+        metadata = [
+            {
+                "source": c.get("source", "unknown"),
+                "chunk_id": c.get("chunk_id", -1),
+                "page": c.get("page", None)
+            }
+            for c in chunks
+        ]
 
         self.add_documents(embeddings, texts, metadata)
 

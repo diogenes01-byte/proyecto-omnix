@@ -1,9 +1,11 @@
 from src.vectorstore.store import VectorStore
 from src.rag.pipeline import RAGPipeline
+from src.config import EMBEDDING_DIM
 
 print("1. cargando vectorstore...")
 
-store = VectorStore(embedding_dim=384)  # ajusta si tu modelo es distinto
+# Usa dimensión desde config (1536)
+store = VectorStore(embedding_dim=EMBEDDING_DIM)
 store.load_from_pickle("data/embeddings/chunks_embeddings.pkl")
 
 print("2. inicializando pipeline...")
