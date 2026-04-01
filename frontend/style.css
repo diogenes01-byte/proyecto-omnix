@@ -289,6 +289,27 @@ color:#4b5563;
 }
 
 
+/* ========================= */
+/* 🔥 SOURCES (NUEVO BLOQUE) */
+/* ========================= */
+
+.sources-box{
+margin-top:10px;
+padding:10px;
+background:var(--bg-card);
+border:1px solid var(--border);
+border-radius:10px;
+font-size:0.8rem;
+color:var(--text-muted);
+}
+
+.source-item{
+margin-top:6px;
+opacity:0.9;
+line-height:1.4;
+}
+
+
 /* MOBILE */
 
 @media (max-width:640px){

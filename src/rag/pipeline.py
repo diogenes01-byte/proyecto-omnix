@@ -14,13 +14,11 @@ class RAGPipeline:
         self.vector_store = vector_store
         self.client = OpenAI()
 
-        # OpenAI embedding model
         self.embedding_model = EMBEDDING_MODEL
-
         self.model_name = model_name
 
     # -------------------------
-    # EMBEDDING (OPENAI ONLY)
+    # EMBEDDING
     # -------------------------
     def _embed(self, text: str):
         response = self.client.embeddings.create(
@@ -37,7 +35,7 @@ class RAGPipeline:
         return self.vector_store.search(query_embedding, k=k)
 
     # -------------------------
-    # CONTEXT BUILDER
+    # CONTEXT BUILDER (para LLM)
     # -------------------------
     def _build_context(self, retrieved_docs):
         chunks = []
@@ -54,6 +52,25 @@ class RAGPipeline:
             chunks.append(block)
 
         return "\n\n".join(chunks)
+
+    # -------------------------
+    # SOURCES BUILDER (NUEVO)
+    # -------------------------
+    def _build_sources(self, retrieved_docs):
+        sources = []
+
+        for doc in retrieved_docs:
+            meta = doc.get("metadata", {})
+
+            sources.append({
+                "chunk_uid": meta.get("chunk_uid"),
+                "doc_id": meta.get("doc_id"),
+                "source": meta.get("source"),
+                "chunk_id": meta.get("chunk_id"),
+                "text": doc.get("text")
+            })
+
+        return sources
 
     # -------------------------
     # PROMPT
@@ -85,18 +102,18 @@ ANSWER:
     # -------------------------
     def query(self, question: str, k: int = 5):
         docs = self._retrieve(question, k=k)
+
         context = self._build_context(docs)
         prompt = self._build_prompt(question, context)
 
         response = self.client.chat.completions.create(
             model=self.model_name,
-            messages=[
-                {"role": "user", "content": prompt}
-            ],
+            messages=[{"role": "user", "content": prompt}],
             temperature=0.2
         )
 
         return {
             "answer": response.choices[0].message.content,
+            "sources": self._build_sources(docs),  # 🔥 CLAVE
             "context": docs
         }

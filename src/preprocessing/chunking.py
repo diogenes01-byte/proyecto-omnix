@@ -6,19 +6,11 @@ from src.config import CHUNK_SIZE, CHUNK_OVERLAP
 # 1. PÁRRAFOS
 # ---------------------------
 def split_into_paragraphs(text: str) -> list:
-    """
-    Divide el texto en párrafos.
-    Funciona incluso si los saltos de línea fueron normalizados.
-    """
-
-    # Intento 1: párrafos clásicos (doble salto)
     paragraphs = re.split(r"\n\s*\n", text)
 
-    # Fallback: dividir por puntos largos (bloques semánticos)
     if len(paragraphs) <= 1:
         paragraphs = re.split(r'(?<=[.!?])\s+', text)
 
-    # Filtrar ruido
     paragraphs = [p.strip() for p in paragraphs if len(p.strip()) > 40]
 
     return paragraphs
@@ -28,9 +20,6 @@ def split_into_paragraphs(text: str) -> list:
 # 2. SPLIT POR ORACIONES
 # ---------------------------
 def split_into_sentences(text: str) -> list:
-    """
-    Split simple y robusto basado en puntuación.
-    """
     sentences = re.split(r'(?<=[.!?])\s+', text)
     return [s.strip() for s in sentences if len(s.strip()) > 20]
 
@@ -71,13 +60,9 @@ def get_sentence_boundaries(text: str) -> list:
 # 4. VALIDACIÓN DE CHUNKS
 # ---------------------------
 def is_valid_chunk(text: str) -> bool:
-    """
-    Filtra chunks sin suficiente contenido útil.
-    """
     if len(text) < 80:
         return False
 
-    # Heurística simple: presencia de verbos comunes
     if not re.search(
         r"\b(is|are|was|were|be|have|has|had|increase|decrease|shows|find)\b",
         text,
@@ -100,7 +85,7 @@ def build_chunks_from_paragraphs(paragraphs: list, chunk_size: int, overlap: int
 
         for sub_p in sub_paragraphs:
             if len(current_chunk) + len(sub_p) > chunk_size and current_chunk:
-                # corte en límite de oración
+
                 boundaries = get_sentence_boundaries(current_chunk)
 
                 if boundaries:
@@ -113,7 +98,6 @@ def build_chunks_from_paragraphs(paragraphs: list, chunk_size: int, overlap: int
                 if is_valid_chunk(final_chunk):
                     chunks.append(final_chunk)
 
-                # overlap
                 overlap_text = ""
                 if overlap > 0 and len(current_chunk) > overlap:
                     overlap_text = current_chunk[-overlap:]
@@ -124,7 +108,6 @@ def build_chunks_from_paragraphs(paragraphs: list, chunk_size: int, overlap: int
             else:
                 current_chunk += " " + sub_p if current_chunk else sub_p
 
-    # último chunk
     if current_chunk and is_valid_chunk(current_chunk):
         chunks.append(current_chunk.strip())
 
@@ -136,6 +119,7 @@ def build_chunks_from_paragraphs(paragraphs: list, chunk_size: int, overlap: int
 # ---------------------------
 def process_documents(documents: list) -> list:
     all_chunks = []
+    chunk_uid_counter = 0  # 🔥 NUEVO: ID global
 
     for doc_id, doc in enumerate(documents):
         text = doc.get("clean_text", "")
@@ -147,12 +131,15 @@ def process_documents(documents: list) -> list:
 
         for i, chunk in enumerate(chunks):
             all_chunks.append({
+                "chunk_uid": chunk_uid_counter,   # 🔥 NUEVO (GLOBAL UNIQUE ID)
                 "doc_id": doc_id,
                 "source": doc["source"],
-                "chunk_id": i,
+                "chunk_id": i,                    # local por documento
                 "text": chunk,
                 "chunk_length": len(chunk)
             })
+
+            chunk_uid_counter += 1
 
     return all_chunks
 
@@ -171,6 +158,6 @@ if __name__ == "__main__":
     print(f"Total chunks generados: {len(chunks)}\n")
 
     for c in chunks[:6]:
-        print(f"{c['source']} - chunk {c['chunk_id']}")
-        print(repr(c["text"][:350]))
+        print(f"[{c['chunk_uid']}] {c['source']} - chunk {c['chunk_id']}")
+        print(c["text"][:300])
         print("-" * 60)

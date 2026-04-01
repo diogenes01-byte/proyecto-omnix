@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
         return messageDiv;
     }
 
-    // Indicador typing real (bubble animada simple)
+    // Indicador typing real
     function addTypingIndicator() {
         const typingDiv = document.createElement("div");
         typingDiv.classList.add("message", "bot", "typing");
@@ -56,16 +56,41 @@ document.addEventListener("DOMContentLoaded", () => {
         return typingDiv;
     }
 
+    // 🔥 NUEVO: render sources
+    function addSources(sources) {
+        if (!sources || !sources.length) return;
+
+        const sourcesDiv = document.createElement("div");
+        sourcesDiv.classList.add("sources-box");
+
+        const title = document.createElement("div");
+        title.textContent = "Sources:";
+        title.style.fontWeight = "bold";
+        title.style.marginTop = "8px";
+
+        sourcesDiv.appendChild(title);
+
+        sources.forEach(src => {
+            const item = document.createElement("div");
+            item.classList.add("source-item");
+
+            item.textContent = `chunk_uid: ${src.chunk_uid} | source: ${src.source} | chunk_id: ${src.chunk_id}`;
+
+            sourcesDiv.appendChild(item);
+        });
+
+        chatContainer.appendChild(sourcesDiv);
+        chatContainer.scrollTop = chatContainer.scrollHeight;
+    }
+
     // Enviar pregunta al backend
     async function sendQuestion() {
         const question = userInput.value.trim();
         if (!question) return;
 
-        // user bubble
         addMessage(question, "user");
         userInput.value = "";
 
-        // typing bubble
         const typingMessage = addTypingIndicator();
 
         try {
@@ -79,12 +104,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
             const data = await response.json();
 
-            // eliminar typing
             typingMessage.remove();
 
-            // -------------------------------
-            // 🔥 TYPEWRITER EFFECT (AQUÍ EL CAMBIO)
-            // -------------------------------
             const botMessage = addMessage("", "bot");
             const textElement = botMessage.querySelector(".message-text");
 
@@ -96,6 +117,9 @@ document.addEventListener("DOMContentLoaded", () => {
                     textElement.textContent += text.charAt(i);
                     i++;
                     setTimeout(typeWriter, 15);
+                } else {
+                    // 🔥 cuando termina el texto, mostramos sources
+                    addSources(data.sources);
                 }
             }
 
@@ -108,7 +132,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    // Eventos
     sendBtn.addEventListener("click", sendQuestion);
 
     userInput.addEventListener("keydown", (e) => {

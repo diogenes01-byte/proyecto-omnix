@@ -39,8 +39,9 @@ class QueryRequest(BaseModel):
     question: str = Field(..., min_length=5, max_length=500)
 
 class Source(BaseModel):
+    chunk_uid: int | None = None
     source: str
-    chunk_id: int
+    chunk_id: int | None = None
 
 class QueryResponse(BaseModel):
     question: str
@@ -62,10 +63,7 @@ def startup_event():
     try:
         logger.info("Inicializando Vector Store...")
 
-        embedding_dim = 1536  # ajusta si usas otro modelo
-
-        vector_store = VectorStore(embedding_dim=embedding_dim)
-
+        vector_store = VectorStore()
         vector_store.load_from_pickle()
 
         logger.info("Inicializando RAG Pipeline...")
@@ -96,27 +94,29 @@ def query_rag(req: QueryRequest):
         result = rag_pipeline.query(req.question, k=5)
 
         answer = result["answer"]
-        context_chunks = result["context"]
+        sources = result.get("sources", [])
 
-        if not context_chunks:
+        if not sources:
             return QueryResponse(
                 question=req.question,
                 answer="No se encontró contexto relevante en la base de datos.",
                 sources=[]
             )
 
-        sources = [
+        # 🔥 ya no reconstruimos nada, solo normalizamos salida
+        formatted_sources = [
             Source(
-                source=c.get("source", "unknown"),
-                chunk_id=c.get("chunk_id", -1)
+                chunk_uid=s.get("chunk_uid"),
+                source=s.get("source", "unknown"),
+                chunk_id=s.get("chunk_id")
             )
-            for c in context_chunks
+            for s in sources
         ]
 
         return QueryResponse(
             question=req.question,
             answer=answer,
-            sources=sources
+            sources=formatted_sources
         )
 
     except HTTPException as e:

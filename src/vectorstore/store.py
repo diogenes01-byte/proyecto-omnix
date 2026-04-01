@@ -57,12 +57,13 @@ class VectorStore:
         embeddings = np.array([c["embedding"] for c in chunks]).astype("float32")
         texts = [c["text"] for c in chunks]
 
-        # 🔥 FIX: reconstrucción correcta de metadata
+        # 🔥 FIX IMPORTANTE: metadata completa para RAG tracing
         metadata = [
             {
+                "chunk_uid": c.get("chunk_uid", -1),
+                "doc_id": c.get("doc_id", -1),
                 "source": c.get("source", "unknown"),
-                "chunk_id": c.get("chunk_id", -1),
-                "page": c.get("page", None)
+                "chunk_id": c.get("chunk_id", -1)
             }
             for c in chunks
         ]
@@ -98,7 +99,7 @@ class VectorStore:
 
             results.append({
                 "text": self.texts[idx],
-                "metadata": self.metadata[idx],
+                "metadata": self.metadata[idx],  # 🔥 ahora incluye chunk_uid
                 "score": score
             })
 

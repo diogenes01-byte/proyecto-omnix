@@ -8,7 +8,6 @@ from src.preprocessing.text_cleaner import clean_documents
 from src.preprocessing.chunking import process_documents
 from src.config import EMBEDDING_MODEL
 
-# Cargar variables de entorno
 load_dotenv()
 
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
@@ -19,18 +18,9 @@ EMBEDDINGS_PATH = "data/embeddings/chunks_embeddings.pkl"
 
 
 def generate_embeddings(batch_size: int = 32):
-    """
-    Pipeline completo:
-    load → clean → chunk → embed (OpenAI)
-    """
 
-    # 1. Load
     docs = load_pdfs()
-
-    # 2. Clean
     clean_docs = clean_documents(docs)
-
-    # 3. Chunk
     chunks = process_documents(clean_docs)
 
     if not chunks:
@@ -41,7 +31,6 @@ def generate_embeddings(batch_size: int = 32):
     if not valid_chunks:
         return []
 
-    # 4. Embeddings
     for i in range(0, len(valid_chunks), batch_size):
         batch_chunks = valid_chunks[i:i + batch_size]
         batch_texts = [c["text"] for c in batch_chunks]
@@ -53,6 +42,14 @@ def generate_embeddings(batch_size: int = 32):
 
         for chunk, item in zip(batch_chunks, response.data):
             chunk["embedding"] = item.embedding
+
+            # 🔥 NUEVO: estructura de trazabilidad para RAG
+            chunk["source_metadata"] = {
+                "chunk_uid": chunk.get("chunk_uid"),
+                "doc_id": chunk.get("doc_id"),
+                "source": chunk.get("source"),
+                "chunk_id": chunk.get("chunk_id")
+            }
 
     return valid_chunks
 
@@ -100,4 +97,4 @@ if __name__ == "__main__":
 
         print("\nEjemplo:")
         print(data[0]["text"][:200])
-        print(data[0]["embedding"][:10])
+        print(data[0]["source_metadata"])
