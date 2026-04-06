@@ -1,40 +1,52 @@
 import re
+from typing import List, Dict, Any
 from src.config import CHUNK_SIZE, CHUNK_OVERLAP
 
 
 # ---------------------------
-# 1. PÁRRAFOS
+# 1. SPLIT POR HEADERS 
 # ---------------------------
-def split_into_paragraphs(text: str) -> list:
+def split_by_headers(text: str) -> List[str]:
+    """
+    Divide texto usando headers Markdown (#, ##, ###)
+    """
+    sections = re.split(r"\n(?=# )|\n(?=## )|\n(?=### )", text)
+    return [s.strip() for s in sections if len(s.strip()) > 50]
+
+
+# ---------------------------
+# 2. PÁRRAFOS 
+# ---------------------------
+def split_into_paragraphs(text: str) -> List[str]:
     paragraphs = re.split(r"\n\s*\n", text)
 
     if len(paragraphs) <= 1:
         paragraphs = re.split(r'(?<=[.!?])\s+', text)
 
-    paragraphs = [p.strip() for p in paragraphs if len(p.strip()) > 40]
-
-    return paragraphs
+    return [p.strip() for p in paragraphs if len(p.strip()) > 40]
 
 
 # ---------------------------
-# 2. SPLIT POR ORACIONES
+# 3. ORACIONES
 # ---------------------------
-def split_into_sentences(text: str) -> list:
-    sentences = re.split(r'(?<=[.!?])\s+', text)
-    return [s.strip() for s in sentences if len(s.strip()) > 20]
+def split_into_sentences(text: str) -> List[str]:
+    return re.split(r'(?<=[.!?])\s+', text)
 
 
-def split_long_paragraph(paragraph: str, max_size: int) -> list:
-    if len(paragraph) <= max_size:
-        return [paragraph]
+# ---------------------------
+# 4. DIVISIÓN DE BLOQUES LARGOS
+# ---------------------------
+def split_long_text(text: str, max_size: int) -> List[str]:
+    if len(text) <= max_size:
+        return [text]
 
-    sentences = split_into_sentences(paragraph)
+    sentences = split_into_sentences(text)
 
     chunks = []
     current = ""
 
     for sentence in sentences:
-        if len(current) + len(sentence) + 1 > max_size:
+        if len(current) + len(sentence) > max_size:
             if current:
                 chunks.append(current.strip())
                 current = sentence
@@ -50,91 +62,74 @@ def split_long_paragraph(paragraph: str, max_size: int) -> list:
 
 
 # ---------------------------
-# 3. DETECCIÓN DE FINAL DE ORACIÓN
+# 5. OVERLAP LIMPIO
 # ---------------------------
-def get_sentence_boundaries(text: str) -> list:
-    return [m.end() for m in re.finditer(r'[.!?]\s+', text)]
+def apply_overlap(prev_chunk: str, overlap: int) -> str:
+    if overlap <= 0 or len(prev_chunk) <= overlap:
+        return ""
 
+    overlap_text = prev_chunk[-overlap:]
 
-# ---------------------------
-# 4. VALIDACIÓN DE CHUNKS
-# ---------------------------
-def is_valid_chunk(text: str) -> bool:
-    if len(text) < 80:
-        return False
-
-    if not re.search(
-        r"\b(is|are|was|were|be|have|has|had|increase|decrease|shows|find)\b",
-        text,
-        re.IGNORECASE,
-    ):
-        return False
-
-    return True
+    # Evitar cortar palabras
+    return re.sub(r'^\S+\s*', '', overlap_text)
 
 
 # ---------------------------
-# 5. CONSTRUCCIÓN DE CHUNKS
+# 6. PIPELINE PRINCIPAL
 # ---------------------------
-def build_chunks_from_paragraphs(paragraphs: list, chunk_size: int, overlap: int) -> list:
+def build_chunks(text: str, chunk_size: int, overlap: int) -> List[str]:
     chunks = []
+
+    # 🔥 PRIORIDAD: headers
+    sections = split_by_headers(text)
+
+    # fallback si no hay estructura
+    if len(sections) <= 1:
+        sections = split_into_paragraphs(text)
+
     current_chunk = ""
 
-    for paragraph in paragraphs:
-        sub_paragraphs = split_long_paragraph(paragraph, chunk_size)
+    for section in sections:
+        sub_chunks = split_long_text(section, chunk_size)
 
-        for sub_p in sub_paragraphs:
-            if len(current_chunk) + len(sub_p) > chunk_size and current_chunk:
+        for sub in sub_chunks:
+            if len(current_chunk) + len(sub) > chunk_size and current_chunk:
+                chunks.append(current_chunk.strip())
 
-                boundaries = get_sentence_boundaries(current_chunk)
-
-                if boundaries:
-                    target = min(len(current_chunk), chunk_size)
-                    cut_pos = max([b for b in boundaries if b <= target] or [target])
-                    final_chunk = current_chunk[:cut_pos].strip()
-                else:
-                    final_chunk = current_chunk.strip()
-
-                if is_valid_chunk(final_chunk):
-                    chunks.append(final_chunk)
-
-                overlap_text = ""
-                if overlap > 0 and len(current_chunk) > overlap:
-                    overlap_text = current_chunk[-overlap:]
-                    overlap_text = re.sub(r'^\S+\s*', '', overlap_text)
-
-                current_chunk = (overlap_text + " " + sub_p).strip() if overlap_text else sub_p
-
+                overlap_text = apply_overlap(current_chunk, overlap)
+                current_chunk = (overlap_text + " " + sub).strip() if overlap_text else sub
             else:
-                current_chunk += " " + sub_p if current_chunk else sub_p
+                current_chunk += " " + sub if current_chunk else sub
 
-    if current_chunk and is_valid_chunk(current_chunk):
+    if current_chunk:
         chunks.append(current_chunk.strip())
 
     return chunks
 
 
 # ---------------------------
-# 6. PIPELINE FINAL
+# 7. PIPELINE DOCUMENTOS
 # ---------------------------
-def process_documents(documents: list) -> list:
+def process_documents(documents: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
     all_chunks = []
-    chunk_uid_counter = 0  # 🔥 NUEVO: ID global
+    chunk_uid_counter = 0
 
     for doc_id, doc in enumerate(documents):
         text = doc.get("clean_text", "")
         if not text:
             continue
 
-        paragraphs = split_into_paragraphs(text)
-        chunks = build_chunks_from_paragraphs(paragraphs, CHUNK_SIZE, CHUNK_OVERLAP)
+        chunks = build_chunks(text, CHUNK_SIZE, CHUNK_OVERLAP)
 
         for i, chunk in enumerate(chunks):
+            if len(chunk) < 50:  # filtro mínimo simple
+                continue
+
             all_chunks.append({
-                "chunk_uid": chunk_uid_counter,   # 🔥 NUEVO (GLOBAL UNIQUE ID)
+                "chunk_uid": chunk_uid_counter,
                 "doc_id": doc_id,
                 "source": doc["source"],
-                "chunk_id": i,                    # local por documento
+                "chunk_id": i,
                 "text": chunk,
                 "chunk_length": len(chunk)
             })
@@ -148,10 +143,10 @@ def process_documents(documents: list) -> list:
 # TEST
 # ---------------------------
 if __name__ == "__main__":
-    from src.ingestion.load_documents import load_pdfs
+    from src.ingestion.load_documents import load_documents
     from src.preprocessing.text_cleaner import clean_documents
 
-    docs = load_pdfs()
+    docs = load_documents()
     clean_docs = clean_documents(docs)
     chunks = process_documents(clean_docs)
 

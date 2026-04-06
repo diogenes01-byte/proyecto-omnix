@@ -6,6 +6,7 @@ import logging
 
 from src.rag.pipeline import RAGPipeline
 from src.vectorstore.store import VectorStore
+from src.config import EMBEDDING_DIM
 
 # ---------------------------
 # Logging
@@ -39,8 +40,8 @@ class QueryRequest(BaseModel):
     question: str = Field(..., min_length=5, max_length=500)
 
 class Source(BaseModel):
-    chunk_uid: int | None = None
-    source: str
+    chunk_uid: str | None = None
+    source: str = "unknown"
     chunk_id: int | None = None
 
 class QueryResponse(BaseModel):
@@ -49,25 +50,19 @@ class QueryResponse(BaseModel):
     sources: List[Source]
 
 # ---------------------------
-# Globals
-# ---------------------------
-rag_pipeline = None
-
-# ---------------------------
 # Startup
 # ---------------------------
 @app.on_event("startup")
 def startup_event():
-    global rag_pipeline
-
     try:
         logger.info("Inicializando Vector Store...")
 
-        vector_store = VectorStore()
+        vector_store = VectorStore(embedding_dim=EMBEDDING_DIM)
         vector_store.load_from_pickle()
 
         logger.info("Inicializando RAG Pipeline...")
-        rag_pipeline = RAGPipeline(vector_store=vector_store)
+
+        app.state.rag_pipeline = RAGPipeline(vector_store=vector_store)
 
         logger.info("RAG Pipeline listo.")
 
@@ -86,6 +81,8 @@ def root():
 @app.post("/api/v1/query", response_model=QueryResponse)
 def query_rag(req: QueryRequest):
     try:
+        rag_pipeline = getattr(app.state, "rag_pipeline", None)
+
         if rag_pipeline is None:
             raise HTTPException(status_code=500, detail="Pipeline no inicializado")
 
@@ -93,8 +90,10 @@ def query_rag(req: QueryRequest):
 
         result = rag_pipeline.query(req.question, k=5)
 
-        answer = result["answer"]
+        answer = result.get("answer", "")
         sources = result.get("sources", [])
+
+        logger.info("Respuesta generada correctamente.")
 
         if not sources:
             return QueryResponse(
@@ -103,10 +102,12 @@ def query_rag(req: QueryRequest):
                 sources=[]
             )
 
-        # 🔥 ya no reconstruimos nada, solo normalizamos salida
+        # ---------------------------
+        # FIX: normalización de tipos
+        # ---------------------------
         formatted_sources = [
             Source(
-                chunk_uid=s.get("chunk_uid"),
+                chunk_uid=str(s.get("chunk_uid")) if s.get("chunk_uid") is not None else None,
                 source=s.get("source", "unknown"),
                 chunk_id=s.get("chunk_id")
             )
@@ -119,8 +120,8 @@ def query_rag(req: QueryRequest):
             sources=formatted_sources
         )
 
-    except HTTPException as e:
-        raise e
+    except HTTPException:
+        raise
 
     except Exception as e:
         logger.error(f"Error en query_rag: {str(e)}")

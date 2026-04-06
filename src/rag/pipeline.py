@@ -21,53 +21,76 @@ class RAGPipeline:
     # EMBEDDING
     # -------------------------
     def _embed(self, text: str):
-        response = self.client.embeddings.create(
-            model=self.embedding_model,
-            input=text
-        )
-        return np.array(response.data[0].embedding, dtype="float32")
+        if not text or not text.strip():
+            raise ValueError("Input text for embedding is empty.")
+
+        try:
+            response = self.client.embeddings.create(
+                model=self.embedding_model,
+                input=text
+            )
+            embedding = np.array(response.data[0].embedding, dtype="float32")
+
+            # Normalizar el embedding para mejorar la similitud coseno
+            norm = np.linalg.norm(embedding)
+            if norm > 0:
+                embedding = embedding / norm
+
+            return embedding
+
+        except Exception as e:
+            raise RuntimeError(f"Embedding failed: {e}")
 
     # -------------------------
     # RETRIEVAL
     # -------------------------
     def _retrieve(self, query: str, k: int = 5):
+        if k <= 0:
+            k = 5
+
         query_embedding = self._embed(query).reshape(1, -1)
         return self.vector_store.search(query_embedding, k=k)
 
     # -------------------------
-    # CONTEXT BUILDER (para LLM)
+    # CONTEXT BUILDER
     # -------------------------
-    def _build_context(self, retrieved_docs):
+    def _build_context(self, retrieved_docs, max_chars: int = 4000):
         chunks = []
+        total_length = 0
 
         for i, doc in enumerate(retrieved_docs, start=1):
-            text = doc["text"].strip()
-            score = doc.get("score", None)
+            text = (doc.get("text") or "").strip()
+            score = doc.get("score")
 
             block = f"[Document {i}]\n{text}"
 
             if score is not None:
                 block += f"\nScore: {score:.4f}"
 
+            # Limitar tamaño total
+            if total_length + len(block) > max_chars:
+                break
+
             chunks.append(block)
+            total_length += len(block)
 
         return "\n\n".join(chunks)
 
     # -------------------------
-    # SOURCES BUILDER (NUEVO)
+    # SOURCES BUILDER
     # -------------------------
     def _build_sources(self, retrieved_docs):
         sources = []
 
         for doc in retrieved_docs:
-            meta = doc.get("metadata", {})
+            meta = doc.get("metadata") or {}
 
             sources.append({
-                "chunk_uid": meta.get("chunk_uid"),
-                "doc_id": meta.get("doc_id"),
-                "source": meta.get("source"),
-                "chunk_id": meta.get("chunk_id"),
-                "text": doc.get("text")
+                "chunk_uid": meta.get("chunk_uid", ""),
+                "doc_id": meta.get("doc_id", ""),
+                "source": meta.get("source", ""),
+                "chunk_id": meta.get("chunk_id", ""),
+                "text": doc.get("text", "")
             })
 
         return sources
@@ -101,19 +124,35 @@ ANSWER:
     # MAIN QUERY
     # -------------------------
     def query(self, question: str, k: int = 5):
+        if not question or not question.strip():
+            raise ValueError("Question cannot be empty.")
+
         docs = self._retrieve(question, k=k)
+
+        if not docs:
+            return {
+                "answer": "I don't have enough information in the provided documents.",
+                "sources": [],
+                "context": []
+            }
 
         context = self._build_context(docs)
         prompt = self._build_prompt(question, context)
 
-        response = self.client.chat.completions.create(
-            model=self.model_name,
-            messages=[{"role": "user", "content": prompt}],
-            temperature=0.2
-        )
+        try:
+            response = self.client.chat.completions.create(
+                model=self.model_name,
+                messages=[{"role": "user", "content": prompt}],
+                temperature=0.2
+            )
+
+            answer = response.choices[0].message.content
+
+        except Exception as e:
+            answer = f"Error generating response: {e}"
 
         return {
-            "answer": response.choices[0].message.content,
-            "sources": self._build_sources(docs),  # 🔥 CLAVE
+            "answer": answer,
+            "sources": self._build_sources(docs),
             "context": docs
         }

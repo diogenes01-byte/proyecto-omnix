@@ -57,7 +57,7 @@ class VectorStore:
         embeddings = np.array([c["embedding"] for c in chunks]).astype("float32")
         texts = [c["text"] for c in chunks]
 
-        # 🔥 FIX IMPORTANTE: metadata completa para RAG tracing
+        # Metadata completa para RAG tracing
         metadata = [
             {
                 "chunk_uid": c.get("chunk_uid", -1),
@@ -99,7 +99,7 @@ class VectorStore:
 
             results.append({
                 "text": self.texts[idx],
-                "metadata": self.metadata[idx],  # 🔥 ahora incluye chunk_uid
+                "metadata": self.metadata[idx],  
                 "score": score
             })
 

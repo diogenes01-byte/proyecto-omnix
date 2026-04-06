@@ -1,34 +1,23 @@
 import re
+from typing import List, Dict, Any
 
 
 def normalize_whitespace(text: str) -> str:
-    """
-    Normaliza espacios y saltos de línea.
-    """
-    text = re.sub(r"\s+", " ", text)
+    text = re.sub(r"[ \t]+", " ", text)   # solo espacios horizontales
+    text = re.sub(r"\n{3,}", "\n\n", text)  # preservar párrafos
     return text.strip()
 
 
 def fix_hyphen_line_breaks(text: str) -> str:
-    """
-    Une palabras cortadas por salto de línea con guion:
-    Ej: 'monetary-\npolicy' → 'monetary policy'
-    """
     return re.sub(r"-\s*\n\s*", "", text)
 
 
 def fix_line_break_words(text: str) -> str:
-    """
-    Reemplaza saltos de línea por espacios.
-    """
-    return re.sub(r"\n+", " ", text)
+    # 🔥 Cambio: preservar doble salto de línea (párrafos)
+    return re.sub(r"\n(?!\n)", " ", text)
 
 
 def fix_spaced_letters(text: str) -> str:
-    """
-    Reconstruye palabras con letras separadas por espacios.
-    Ej: 'E L E C T R O N' → 'ELECTRON'
-    """
     pattern = r"(?:\b(?:[A-Za-z]\s){2,}[A-Za-z]\b)"
 
     def replace_match(match):
@@ -38,10 +27,6 @@ def fix_spaced_letters(text: str) -> str:
 
 
 def fix_camel_case_and_joined_words(text: str) -> str:
-    """
-    Separa palabras pegadas por cambios de minúscula a mayúscula.
-    Ej: 'LaintegraciónEuropea' → 'Laintegración Europea'
-    """
     return re.sub(
         r"(?<=[a-záéíóúñ])(?=[A-ZÁÉÍÓÚÑ])",
         " ",
@@ -51,75 +36,47 @@ def fix_camel_case_and_joined_words(text: str) -> str:
 
 def remove_pdf_noise(text: str) -> str:
     """
-    Limpia ruido ligero sin romper Markdown ni URLs.
+    Versión más conservadora:
+    - NO rompe Markdown
+    - SOLO elimina ruido muy específico
     """
-
-    # Eliminar patrones tipo /G69/G67 (ruido típico PDF)
-    text = re.sub(r"/[A-Za-z0-9]+", " ", text)
-
-    # Mantener caracteres de Markdown y URLs
-    # (solo quitamos basura realmente rara)
-    text = re.sub(r"[^\w\s\.\,\;\:\-\(\)\[\]\#\/\:]", " ", text)
-
-    # Normalizar espacios
-    text = re.sub(r"\s+", " ", text)
-
-    return text.strip()
+    text = re.sub(r"/[A-Za-z0-9]{1,4}", " ", text)
+    text = re.sub(r"[^\w\s\.\,\;\:\-\(\)\[\]\#\/\:\%\&]", " ", text)
+    return text
 
 
 def clean_text(text: str) -> str:
-    """
-    Pipeline de limpieza optimizado para RAG.
-
-    Orden lógico:
-    1. Limpieza base
-    2. Corrección de guiones de fin de línea
-    3. Unificación de saltos de línea
-    4. Reconstrucción de palabras con letras separadas
-    5. Separación de palabras pegadas por mayúsculas
-    6. Normalización final de espacios
-    """
-
     if not text:
         return ""
 
-    # 1. Limpieza base
-    text = remove_pdf_noise(text)
-
-    # 2. Correcciones estructurales
+    # 1. Correcciones estructurales
     text = fix_hyphen_line_breaks(text)
     text = fix_line_break_words(text)
 
-    # 3. Reconstrucciones ligeras
+    # 2. Reconstrucciones
     text = fix_spaced_letters(text)
     text = fix_camel_case_and_joined_words(text)
 
-    # 4. Normalización final
+    # 3. Limpieza ligera
+    text = remove_pdf_noise(text)
+
+    # 4. Normalización final (Markdown-safe)
     text = normalize_whitespace(text)
 
     return text
 
 
-def clean_documents(documents: list) -> list:
-    """
-    Aplica limpieza a documentos de ingesta.
-    Añade campo 'clean_text'.
-    """
-    cleaned_docs = []
-
-    for doc in documents:
-        cleaned_docs.append({
-            **doc,
-            "clean_text": clean_text(doc["text"])
-        })
-
-    return cleaned_docs
+def clean_documents(documents: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+    return [
+        {**doc, "clean_text": clean_text(doc["text"])}
+        for doc in documents
+    ]
 
 
 if __name__ == "__main__":
-    from src.ingestion.load_documents import load_pdfs
+    from src.ingestion.load_documents import load_documents
 
-    docs = load_pdfs()
+    docs = load_documents()
 
     for doc in docs[:2]:
         print("\nSOURCE:", doc["source"])

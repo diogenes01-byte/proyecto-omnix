@@ -1,4 +1,4 @@
-# Economic Bulletin: Euro Area Macroeconomic Conditions, Financial Stability, and Policy Outlook (2022–2026)
+# Economic Bulletin: Euro Area Macroeconomic Conditions, Financial Stability, and Policy Outlook (2022–2026) 
 
 ## Abstract
 

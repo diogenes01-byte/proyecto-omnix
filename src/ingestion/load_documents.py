@@ -1,6 +1,10 @@
 import os
 import re
+import logging
+from typing import Dict, Any, List
 from src.config import RAW_DIR
+
+logging.basicConfig(level=logging.INFO)
 
 
 def clean_text(text: str) -> str:
@@ -9,37 +13,38 @@ def clean_text(text: str) -> str:
     - elimina saltos de línea excesivos
     - elimina espacios duplicados
     """
-    text = re.sub(r"\n+", "\n", text)        # múltiples saltos → uno
-    text = re.sub(r"\s+", " ", text)         # múltiples espacios → uno
+    text = re.sub(r"\n+", "\n", text)
+    text = re.sub(r"\s+", " ", text)
     return text.strip()
 
 
-def read_md(filepath: str) -> dict:
+def read_md(filepath: str) -> Dict[str, Any]:
     """
-    Lee un archivo Markdown:
-    - devuelve texto limpio
+    Lee un archivo Markdown y devuelve texto limpio
     """
     try:
         with open(filepath, "r", encoding="utf-8") as f:
             text = f.read()
-    except Exception:
+    except Exception as e:
+        logging.warning(f"Error leyendo archivo {filepath}: {e}")
         text = ""
 
     return {
         "text": clean_text(text),
-        "num_pages": 1,        # placeholder para mantener compatibilidad
+        "num_pages": 1,
         "failed_pages": 0
     }
 
 
-def load_pdfs():
+def load_documents() -> List[Dict[str, Any]]:
     """
-    Carga todos los archivos .md desde RAW_DIR:
-    - ordena archivos (consistencia)
-    - ignora documentos vacíos
-    - añade metadatos para RAG
+    Carga todos los archivos .md desde RAW_DIR
     """
     documents = []
+
+    if not os.path.exists(RAW_DIR):
+        logging.error(f"Directorio no encontrado: {RAW_DIR}")
+        return documents
 
     for idx, filename in enumerate(sorted(os.listdir(RAW_DIR))):
         if filename.endswith(".md"):
@@ -47,9 +52,8 @@ def load_pdfs():
 
             md_data = read_md(filepath)
 
-            # Validación: ignorar documentos vacíos
             if not md_data["text"]:
-                print(f"[WARNING] Documento vacío ignorado: {filename}")
+                logging.warning(f"Documento vacío ignorado: {filename}")
                 continue
 
             documents.append({
@@ -65,12 +69,12 @@ def load_pdfs():
 
 
 if __name__ == "__main__":
-    docs = load_pdfs()
+    docs = load_documents()
 
-    print(f"\nTotal documentos cargados: {len(docs)}\n")
+    logging.info(f"Total documentos cargados: {len(docs)}")
 
     for doc in docs:
-        print(f"Documento: {doc['source']}")
-        print(f"Páginas: {doc['num_pages']} | Fallidas: {doc['failed_pages']}")
-        print(doc["text"][:500])  # preview
+        logging.info(f"Documento: {doc['source']}")
+        logging.info(f"Páginas: {doc['num_pages']} | Fallidas: {doc['failed_pages']}")
+        print(doc["text"][:500])
         print("-" * 50)
