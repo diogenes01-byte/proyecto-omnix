@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Economic Intelligence Assistant</title>
+<title>Omnix - Economic Intelligence Assistant</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,7 +12,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="style.css">
-
 </head>
 
 <body>
@@ -32,9 +31,9 @@ AI-powered economic data analysis and insights
 
 <main>
 
-<div class="chat-container">
+<section class="chat-container" aria-label="Chat section">
 
-<div class="message bot">
+<div class="message bot" data-role="bot">
 
 <div class="message-avatar">📊</div>
 
@@ -44,26 +43,53 @@ AI-powered economic data analysis and insights
 Hello. I can help analyze economic trends, policies, inflation, growth and macroeconomic indicators. Ask a question to begin the analysis.
 </div>
 
+<!-- BOTÓN + FUENTES COLAPSABLES -->
+<div class="sources-toggle">Ver fuentes</div>
+
+<div class="sources-box">
+
+<div class="source-item">
+economic glossary.md | chunk: 0
 </div>
+
+<div class="source-item">
+the dynamics of inflation persistence in advanced economies.md | chunk: 6
+</div>
+
+<div class="source-item">
+the dynamics of inflation persistence in advanced economies.md | chunk: 5
+</div>
+
+<div class="source-item">
+economic bulletin ecb.md | chunk: 2
+</div>
+
+</div>
+<!-- FIN FUENTES -->
 
 </div>
 
 </div>
+
+</section>
 
 </main>
 
 <div class="input-wrapper">
 
-<div class="input-container">
+<form class="input-container" id="chat-form">
 
 <textarea
 id="user-input"
-placeholder="Ask about inflation, GDP, interest rates or economic policy..."
+placeholder="Ask about inflation, GDP, interest rates..."
+aria-label="User input"
 ></textarea>
 
-<button class="send-btn">→</button>
+<button type="submit" class="send-btn" aria-label="Send message">
+→
+</button>
 
-</div>
+</form>
 
 <div class="hint">
 Diseñado y desarrollado por Diógenes | Data Scientist & BI Strategist
@@ -71,7 +97,6 @@ Diseñado y desarrollado por Diógenes | Data Scientist & BI Strategist
 
 </div>
 
-<!-- Conexión con el script de JavaScript -->
 <script src="script.js"></script>
 
 </body>

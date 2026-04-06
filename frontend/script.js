@@ -4,7 +4,22 @@ document.addEventListener("DOMContentLoaded", () => {
     const chatContainer = document.querySelector(".chat-container");
     const sendBtn = document.querySelector(".send-btn");
 
-    // Crear mensaje tipo bubble
+    let isLoading = false;
+
+    function scrollToBottom() {
+        window.scrollTo({
+            top: document.body.scrollHeight,
+            behavior: "smooth"
+        });
+    }
+
+    function setLoading(state) {
+        isLoading = state;
+        sendBtn.disabled = state;
+        userInput.disabled = state;
+        sendBtn.style.opacity = state ? "0.6" : "1";
+    }
+
     function addMessage(text, sender = "bot") {
         const messageDiv = document.createElement("div");
         messageDiv.classList.add("message", sender);
@@ -18,19 +33,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const textDiv = document.createElement("div");
         textDiv.classList.add("message-text");
-        textDiv.textContent = text;
+
+        textDiv.textContent = sender === "bot" ? "" : text;
 
         contentDiv.appendChild(textDiv);
         messageDiv.appendChild(avatarDiv);
         messageDiv.appendChild(contentDiv);
 
         chatContainer.appendChild(messageDiv);
-        chatContainer.scrollTop = chatContainer.scrollHeight;
+        scrollToBottom();
 
         return messageDiv;
     }
 
-    // Indicador typing real
     function addTypingIndicator() {
         const typingDiv = document.createElement("div");
         typingDiv.classList.add("message", "bot", "typing");
@@ -43,53 +58,67 @@ document.addEventListener("DOMContentLoaded", () => {
         contentDiv.classList.add("message-content");
 
         const dots = document.createElement("div");
-        dots.classList.add("typing-dots");
-        dots.textContent = "Typing...";
+        dots.classList.add("message-text");
+        dots.textContent = "Analizando...";
 
         contentDiv.appendChild(dots);
         typingDiv.appendChild(avatarDiv);
         typingDiv.appendChild(contentDiv);
 
         chatContainer.appendChild(typingDiv);
-        chatContainer.scrollTop = chatContainer.scrollHeight;
+        scrollToBottom();
 
         return typingDiv;
     }
 
-    // 🔥 NUEVO: render sources
-    function addSources(sources) {
+    // =========================
+    // SOURCES (FIX SIMPLE)
+    // =========================
+    function addSources(sources, parentMessage) {
+
+        if (!parentMessage || parentMessage.dataset.rag !== "true") return;
         if (!sources || !sources.length) return;
 
-        const sourcesDiv = document.createElement("div");
-        sourcesDiv.classList.add("sources-box");
+        const contentDiv = parentMessage.querySelector(".message-content");
 
-        const title = document.createElement("div");
-        title.textContent = "Sources:";
-        title.style.fontWeight = "bold";
-        title.style.marginTop = "8px";
+        const toggleBtn = document.createElement("div");
+        toggleBtn.classList.add("sources-toggle");
+        toggleBtn.textContent = "Ver fuentes";
 
-        sourcesDiv.appendChild(title);
+        const sourcesBox = document.createElement("div");
+        sourcesBox.classList.add("sources-box");
 
         sources.forEach(src => {
             const item = document.createElement("div");
             item.classList.add("source-item");
 
-            item.textContent = `chunk_uid: ${src.chunk_uid} | source: ${src.source} | chunk_id: ${src.chunk_id}`;
+            item.textContent = src.source
+                .replace(".md", "")
+                .replace(/_/g, " ")
+                .trim();
 
-            sourcesDiv.appendChild(item);
+            sourcesBox.appendChild(item);
         });
 
-        chatContainer.appendChild(sourcesDiv);
-        chatContainer.scrollTop = chatContainer.scrollHeight;
+        toggleBtn.addEventListener("click", () => {
+            const isOpen = sourcesBox.classList.toggle("open");
+            toggleBtn.textContent = isOpen ? "Ocultar fuentes" : "Ver fuentes";
+        });
+
+        contentDiv.appendChild(toggleBtn);
+        contentDiv.appendChild(sourcesBox);
+
+        scrollToBottom();
     }
 
-    // Enviar pregunta al backend
     async function sendQuestion() {
         const question = userInput.value.trim();
-        if (!question) return;
+        if (!question || isLoading) return;
 
         addMessage(question, "user");
         userInput.value = "";
+
+        setLoading(true);
 
         const typingMessage = addTypingIndicator();
 
@@ -107,19 +136,26 @@ document.addEventListener("DOMContentLoaded", () => {
             typingMessage.remove();
 
             const botMessage = addMessage("", "bot");
+
+            // 🔥 CLAVE: marcar como RAG message
+            botMessage.dataset.rag = "true";
+
             const textElement = botMessage.querySelector(".message-text");
 
             const text = data.answer || "No response received";
+
             let i = 0;
 
             function typeWriter() {
                 if (i < text.length) {
-                    textElement.textContent += text.charAt(i);
+                    textElement.textContent += text[i];
                     i++;
-                    setTimeout(typeWriter, 15);
+                    requestAnimationFrame(() => {
+                        setTimeout(typeWriter, 10);
+                    });
                 } else {
-                    // 🔥 cuando termina el texto, mostramos sources
-                    addSources(data.sources);
+                    addSources(data.sources, botMessage);
+                    setLoading(false);
                 }
             }
 
@@ -128,6 +164,7 @@ document.addEventListener("DOMContentLoaded", () => {
         } catch (error) {
             typingMessage.remove();
             addMessage("Error connecting to backend.", "bot");
+            setLoading(false);
             console.error(error);
         }
     }
