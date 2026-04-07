@@ -1,166 +1,87 @@
 # Inflation Report: Euro Area Price Dynamics and Core Inflation Persistence (2022–2025)
 
 ## Abstract  
-This report analyses inflation dynamics in advanced economies, with a primary focus on the euro area between 2022 and 2025. The inflationary episode is decomposed into supply-driven shocks, demand-side pressures, and structural persistence in services inflation. The analysis draws on datasets and publications from the European Central Bank (ECB), Eurostat, and the International Monetary Fund (IMF).  
 
-Results indicate that while headline inflation has declined significantly from its 2022 peak, underlying core inflation remains more persistent due to wage adjustments, lagged monetary transmission, and sectoral rigidity in services.
+Between 2022 and 2025, the euro area experienced a significant inflationary episode, with headline inflation reaching levels not observed since the inception of the single currency. The peak occurred in late 2022, when inflation exceeded 10% year-on-year, primarily driven by energy and food price shocks. This report decomposes inflation dynamics into supply-side shocks, demand-side pressures, and structural components, with particular attention to the persistence of core inflation.
 
----
+Data from the European Central Bank (ECB), Eurostat, and the International Monetary Fund (IMF) indicate that while headline inflation declined sharply after 2023, core inflation remained elevated for a longer period due to wage adjustments, lagged monetary transmission, and structural rigidities in services.
 
 ## 1. Overview of Inflation Developments (2022–2025)
 
-Inflation in the euro area reached multi-decade highs in 2022, exceeding 10% at its peak, driven primarily by energy and food price shocks. By 2024–2025, inflation moderated significantly but remained above the 2% target threshold for extended periods.
+The inflationary episode in the euro area began in 2021 but intensified significantly in 2022. Headline inflation peaked at 10.6% in October 2022, marking the highest level since the creation of the euro. By 2023, inflation began to decelerate, and by 2024–2025 it had moved closer to the European Central Bank target, although not fully stabilised at 2% for a sustained period.
 
-Key observed patterns:
-- Sharp peak in 2022 due to energy crisis
-- Gradual disinflation during 2023–2025
-- Persistent divergence between headline and core inflation
-- Heterogeneous inflation across member states
-
----
+The disinflation process was uneven across components. Energy inflation, which had been the dominant driver during the peak phase, turned negative in several months of 2024 due to base effects and declining wholesale gas prices. However, services inflation remained persistently elevated, often exceeding 3–4%, slowing the convergence of core inflation toward target levels.
 
 ## 2. Components of Inflation
 
-### 2.1 Headline Inflation  
-Headline inflation reflects total consumer price changes, heavily influenced by volatile components:
+Headline inflation dynamics were dominated by volatile components, particularly energy and food. Energy inflation alone accounted for a large share of the peak inflation episode in 2022, at times contributing more than half of total annual price increases in several euro area economies. This was closely linked to natural gas price spikes, with benchmark Dutch TTF prices exceeding €200/MWh during peak stress periods in 2022 before gradually declining through 2023 and 2024.
 
-- Energy prices (natural gas, electricity, oil)
-- Food commodities
-- Transport costs
+Food inflation also played a significant role, with Eurostat data showing double-digit increases in several quarters of 2022 and early 2023, driven by fertilizer costs, agricultural supply constraints, and adverse weather conditions in key producing regions.
 
-During 2022, energy alone contributed more than half of total inflation in several euro area economies.
-
----
-
-### 2.2 Core Inflation  
-Core inflation excludes energy and food, providing a better signal of underlying price pressures.
-
-Persistent drivers include:
-- Services inflation (housing, hospitality, healthcare)
-- Wage growth dynamics
-- Indexation mechanisms in contracts
-
-Core inflation remained elevated even after energy price normalization, indicating structural stickiness.
-
----
+Core inflation, by contrast, excluded these volatile components and therefore provided a clearer signal of underlying price pressures. It remained elevated throughout 2023–2025, reflecting structural drivers such as services inflation, wage growth, and indexation mechanisms embedded in parts of the euro area economy.
 
 ## 3. Supply-Side Drivers
 
-The inflation surge was initially supply-driven:
+The initial inflation surge was primarily supply-driven. The most significant factor was the disruption in European energy markets following the reduction in Russian gas exports to Europe. This led to unprecedented volatility in natural gas and electricity prices, forcing both households and firms to adjust rapidly to higher input costs.
 
-### 3.1 Energy Shock  
-- Reduction in Russian gas supply to Europe
-- Volatility in global oil markets
-- Increased LNG dependency and price competition
+At the same time, global supply chains were still recovering from pandemic-related disruptions. Shipping costs, which had surged during 2021–2022, remained elevated into early 2023 before normalising. Semiconductor shortages also affected industrial production, particularly in the automotive sector, contributing to price pressures in durable goods.
 
-### 3.2 Supply Chain Disruptions  
-- Post-COVID logistics bottlenecks
-- Semiconductor shortages affecting manufacturing
-- Shipping cost volatility (2021–2022 spillover)
-
-### 3.3 Food Price Inflation  
-- Fertilizer cost increases
-- Agricultural supply disruptions
-- Climate-related shocks in key producing regions
-
----
+Food inflation was reinforced by higher input costs, especially fertilizers, where prices increased sharply following energy market disruptions. In addition, climate-related shocks in major agricultural regions added further volatility to global food supply conditions.
 
 ## 4. Demand-Side Pressures
 
-Despite supply shocks dominating early inflation, demand factors reinforced persistence:
+Although supply shocks were dominant in the initial phase, demand-side factors contributed significantly to inflation persistence. Households in the euro area had accumulated substantial excess savings during the pandemic period, estimated by ECB analyses at several hundred billion euros, which supported consumption in 2022 and part of 2023.
 
-- Excess savings accumulated during pandemic period  
-- Fiscal stimulus in 2020–2021 with lagged effects  
-- Strong labour market conditions  
-- Resilient consumption in services sectors  
+Fiscal policy also played a role, with energy support measures and pandemic-related stimulus continuing to affect demand with lagged effects. Labour markets remained relatively tight, with unemployment rates in the euro area declining to around 6.5% by 2024, supporting household income and consumption capacity.
 
----
+Services consumption proved particularly resilient, maintaining upward pressure on prices in sectors such as hospitality, recreation, and healthcare.
 
 ## 5. Wage Dynamics and Inflation Persistence
 
-Wage growth emerged as a key transmission mechanism in 2023–2025.
+Wage developments became increasingly relevant from 2023 onwards. Nominal wage growth in the euro area accelerated to approximately 4–5% in 2024–2025, reflecting both inflation catch-up effects and tight labour market conditions in specific sectors.
 
-Observed dynamics:
-- Nominal wage increases in response to inflation lag
-- Partial indexation in collective bargaining agreements
-- Tight labour markets in services sectors
+Collective bargaining mechanisms in several member states introduced partial indexation effects, amplifying the transmission of past inflation into current wage settlements. This created a delayed but persistent adjustment process, particularly visible in services sectors where labour costs represent a large share of total input costs.
 
-This created a potential wage-price loop, especially in:
-- Hospitality
-- Retail
-- Public services
-
----
+The interaction between wages and prices contributed to concerns about second-round effects. While a full wage-price spiral did not materialise at the aggregate level, sectoral persistence in services inflation remained evident.
 
 ## 6. Monetary Policy Impact on Inflation
 
-Monetary tightening by the European Central Bank (ECB) significantly influenced inflation trajectories.
+Monetary policy played a central role in the disinflation process. The European Central Bank increased its deposit facility rate from -0.50% in mid-2022 to 4.00% by September 2023, marking one of the fastest tightening cycles in its history.
 
-Transmission channels:
+Higher interest rates transmitted through multiple channels. Credit conditions tightened significantly, with euro area bank lending surveys reporting the strongest tightening since the global financial crisis. Mortgage rates increased from approximately 1.5% in 2021 to above 4% by 2024, leading to a pronounced slowdown in housing-related demand.
 
-### 6.1 Interest Rate Channel  
-Higher policy rates reduced credit demand and investment.
-
-### 6.2 Exchange Rate Channel  
-Stronger euro reduced imported inflation pressures.
-
-### 6.3 Credit Channel  
-Tighter lending standards reduced household consumption and corporate expansion.
-
-### 6.4 Expectations Channel  
-Forward guidance helped re-anchor long-term inflation expectations closer to target levels.
-
----
+The exchange rate channel also contributed to disinflation. The appreciation of the euro against several currencies reduced imported inflation, particularly in energy and manufactured goods. At the same time, forward guidance and policy communication helped re-anchor inflation expectations closer to the ECB’s 2% target over the medium term.
 
 ## 7. Cross-Country Heterogeneity
 
-Inflation dynamics varied significantly across the euro area:
+Inflation dynamics varied meaningfully across euro area member states. Germany experienced stronger inflationary pressures due to its higher exposure to industrial energy demand and its reliance on gas-intensive manufacturing sectors.
 
-- **Germany**: Strong energy shock exposure and industrial sensitivity  
-- **Spain**: Faster disinflation due to energy mix and tourism recovery  
-- **Italy**: Higher persistence in services inflation  
-- **France**: More regulated energy pricing dampened volatility  
+Spain recorded a faster disinflation process, partly due to a different energy mix and the relatively strong recovery of its tourism sector, which supported supply-demand balance in services. Italy exhibited more persistent services inflation, influenced by structural labour market characteristics and slower productivity growth.
 
----
+France experienced comparatively lower volatility in energy prices due to regulated pricing mechanisms that partially smoothed the transmission of wholesale energy shocks to final consumers.
 
-## 8. Inflation Decomposition (Stylised)
+## 8. Inflation Decomposition
 
-Approximate contributions during peak inflation period:
+During the peak inflation period, energy was the dominant contributor to headline inflation, accounting for an estimated 40–60% of total price increases in several euro area economies. Food contributed approximately 15–25%, reflecting both global commodity price pressures and domestic supply constraints.
 
-- Energy: ~40–60% of headline inflation  
-- Food: ~15–25%  
-- Services: ~20–30%  
-- Non-energy industrial goods: ~5–10%  
-
----
+Services inflation accounted for roughly 20–30% of headline inflation during the same period, while non-energy industrial goods contributed a smaller share, typically in the range of 5–10%. This decomposition highlights the central role of external shocks in the initial phase and the increasing importance of domestic factors over time.
 
 ## 9. Policy Implications
 
-Key policy insights:
+The inflation episode underscores the asymmetry between supply and demand policy tools. Monetary policy is effective in moderating demand-driven inflation but operates with longer and less direct lags on supply-driven shocks such as energy price spikes.
 
-- Supply shocks require faster energy diversification strategies  
-- Monetary policy is effective in demand suppression but slower on supply-driven inflation  
-- Structural reforms are necessary to reduce services inflation rigidity  
-- Wage coordination mechanisms can influence persistence
+The experience also highlights the importance of energy diversification strategies in reducing vulnerability to external shocks. Structural reforms aimed at improving productivity and reducing rigidities in services sectors may help reduce inflation persistence over the medium term.
 
----
+Labour market institutions, particularly wage-setting mechanisms, play a critical role in determining the persistence of inflation once initial shocks dissipate.
 
 ## 10. Forward Outlook (2025+)
 
-Expected macroeconomic trajectory:
+Inflation is expected to converge gradually toward the European Central Bank target of approximately 2% over the medium term, supported by stabilising energy markets and restrictive monetary policy effects transmitted with lag.
 
-- Inflation convergence toward ECB target (~2%)  
-- Continued stickiness in services inflation  
-- Lower volatility in energy component due to diversification  
-- Reduced but not eliminated wage pressures  
+However, services inflation is likely to remain more persistent than goods inflation due to structural wage dynamics and labour-intensive production processes. Energy price volatility is expected to be lower than in 2022–2023 due to diversification efforts, but geopolitical risks remain relevant.
 
-Risks:
-- Geopolitical energy shocks  
-- Second-round wage effects  
-- Premature monetary easing  
-
----
+Key risks include renewed energy supply shocks, stronger-than-expected wage growth, and the possibility of premature monetary easing that could slow the disinflation process.
 
 ## 11. Conclusion
 
-The 2022–2025 inflation cycle demonstrates a complex interaction between external supply shocks, domestic demand resilience, and structural wage dynamics. While monetary tightening by the ECB has been effective in reducing headline inflation, core inflation exhibits greater persistence, highlighting the importance of structural and labour market factors in achieving long-term price stability.
+The inflation cycle between 2022 and 2025 reflects a complex interaction between external supply shocks, domestic demand resilience, and structural labour market dynamics. While headline inflation has largely normalised from its 2022 peak, core inflation has demonstrated greater persistence, underscoring the importance of wage dynamics and services-sector rigidity in determining the trajectory toward price stability.
