@@ -31,7 +31,7 @@ class RAGPipeline:
             )
             embedding = np.array(response.data[0].embedding, dtype="float32")
 
-            # Normalizar el embedding para mejorar la similitud coseno
+            # Normalizar embedding (mejor similitud coseno)
             norm = np.linalg.norm(embedding)
             if norm > 0:
                 embedding = embedding / norm
@@ -67,7 +67,6 @@ class RAGPipeline:
             if score is not None:
                 block += f"\nScore: {score:.4f}"
 
-            # Limitar tamaño total
             if total_length + len(block) > max_chars:
                 break
 
@@ -96,16 +95,26 @@ class RAGPipeline:
         return sources
 
     # -------------------------
-    # PROMPT
+    # PROMPT (MEJORADO)
     # -------------------------
     def _build_prompt(self, question: str, context: str):
         return f"""
-You are a precise and reliable question answering system.
+You are an intelligent and helpful assistant in economic analysis.
 
-Use ONLY the provided context to answer the question.
+Your goal is to provide clear, accurate, and slightly elaborated answers using the retrieved context as your primary source.
 
-If the answer is not in the context, say:
-"I don't have enough information in the provided documents."
+INSTRUCTIONS:
+- Use the provided context as the main source of truth.
+- Do NOT copy-paste the text verbatim. Instead, synthesize and explain it.
+- You MAY complement the answer with general knowledge when it helps clarify or improve the response.
+- Keep the answer concise but informative (2 paragraphs max).
+- If the context is partially relevant, combine it with reasoning to give a useful answer.
+
+IF THE CONTEXT IS NOT RELEVANT:
+- Do NOT say only "I don't have enough information".
+- Instead, say:
+  "The provided documents do not contain enough relevant information to fully answer this question. However, based on general knowledge, ..."
+- Then provide a helpful answer.
 
 ---
 
@@ -117,7 +126,9 @@ CONTEXT:
 QUESTION:
 {question}
 
-ANSWER:
+---
+
+FINAL ANSWER:
 """.strip()
 
     # -------------------------
@@ -131,7 +142,11 @@ ANSWER:
 
         if not docs:
             return {
-                "answer": "I don't have enough information in the provided documents.",
+                "answer": (
+                    "The system could not retrieve relevant documents for this question. "
+                    "However, based on general knowledge, please consider refining your query "
+                    "or providing more context."
+                ),
                 "sources": [],
                 "context": []
             }
@@ -142,8 +157,20 @@ ANSWER:
         try:
             response = self.client.chat.completions.create(
                 model=self.model_name,
-                messages=[{"role": "user", "content": prompt}],
-                temperature=0.2
+                messages=[
+                    {
+                        "role": "system",
+                        "content": (
+                            "You are a helpful assistant that answers using retrieved context "
+                            "but can also explain and expand when useful."
+                        )
+                    },
+                    {
+                        "role": "user",
+                        "content": prompt
+                    }
+                ],
+                temperature=0.3
             )
 
             answer = response.choices[0].message.content

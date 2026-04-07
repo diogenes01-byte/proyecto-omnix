@@ -59,7 +59,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const dots = document.createElement("div");
         dots.classList.add("message-text");
-        dots.textContent = "Analizando...";
+        dots.textContent = "Thinking...";
 
         contentDiv.appendChild(dots);
         typingDiv.appendChild(avatarDiv);
@@ -72,14 +72,16 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // =========================
-    // SOURCES (FIX SIMPLE)
+    // SOURCES (FIX COMPATIBLE)
     // =========================
     function addSources(sources, parentMessage) {
 
-        if (!parentMessage || parentMessage.dataset.rag !== "true") return;
-        if (!sources || !sources.length) return;
+        if (!parentMessage) return;
+        if (!sources || !Array.isArray(sources) || sources.length === 0) return;
 
         const contentDiv = parentMessage.querySelector(".message-content");
+
+        if (contentDiv.querySelector(".sources-box")) return;
 
         const toggleBtn = document.createElement("div");
         toggleBtn.classList.add("sources-toggle");
@@ -89,13 +91,22 @@ document.addEventListener("DOMContentLoaded", () => {
         sourcesBox.classList.add("sources-box");
 
         sources.forEach(src => {
+
             const item = document.createElement("div");
             item.classList.add("source-item");
 
-            item.textContent = src.source
-                .replace(".md", "")
-                .replace(/_/g, " ")
-                .trim();
+            const name =
+                src.source ||
+                src.doc_id ||
+                src.chunk_uid ||
+                "unknown source";
+
+            const chunkInfo =
+                src.chunk_id !== undefined && src.chunk_id !== null
+                    ? ` | chunk: ${src.chunk_id}`
+                    : "";
+
+            item.textContent = `${name}${chunkInfo}`.trim();
 
             sourcesBox.appendChild(item);
         });
@@ -136,10 +147,6 @@ document.addEventListener("DOMContentLoaded", () => {
             typingMessage.remove();
 
             const botMessage = addMessage("", "bot");
-
-            // 🔥 CLAVE: marcar como RAG message
-            botMessage.dataset.rag = "true";
-
             const textElement = botMessage.querySelector(".message-text");
 
             const text = data.answer || "No response received";
