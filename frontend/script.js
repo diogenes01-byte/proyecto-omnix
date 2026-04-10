@@ -7,10 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let isLoading = false;
 
     function scrollToBottom() {
-        window.scrollTo({
-            top: document.body.scrollHeight,
-            behavior: "smooth"
-        });
+        window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
     }
 
     function setLoading(state) {
@@ -33,7 +30,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const textDiv = document.createElement("div");
         textDiv.classList.add("message-text");
-
         textDiv.textContent = sender === "bot" ? "" : text;
 
         contentDiv.appendChild(textDiv);
@@ -71,53 +67,45 @@ document.addEventListener("DOMContentLoaded", () => {
         return typingDiv;
     }
 
-    // =========================
-    // SOURCES (FIX COMPATIBLE)
-    // =========================
+    // ====================== NUEVO TOGGLE DE FUENTES ESTILO CHATGPT ======================
     function addSources(sources, parentMessage) {
-
-        if (!parentMessage) return;
         if (!sources || !Array.isArray(sources) || sources.length === 0) return;
 
         const contentDiv = parentMessage.querySelector(".message-content");
 
-        if (contentDiv.querySelector(".sources-box")) return;
+        // Evitar duplicados
+        if (contentDiv.querySelector(".sources-toggle")) return;
 
-        const toggleBtn = document.createElement("div");
-        toggleBtn.classList.add("sources-toggle");
-        toggleBtn.textContent = "Ver fuentes";
+        const toggleContainer = document.createElement("div");
+        toggleContainer.classList.add("sources-toggle-container");
 
-        const sourcesBox = document.createElement("div");
-        sourcesBox.classList.add("sources-box");
+        const toggleBtn = document.createElement("button");
+        toggleBtn.classList.add("sources-btn");
+        toggleBtn.innerHTML = `
+            <span class="sources-icon">📚</span>
+            Sources <span class="sources-count">(${sources.length})</span>
+            <span class="sources-arrow">▼</span>
+        `;
+
+        const sourcesList = document.createElement("div");
+        sourcesList.classList.add("sources-list");
 
         sources.forEach(src => {
-
             const item = document.createElement("div");
             item.classList.add("source-item");
-
-            const name =
-                src.source ||
-                src.doc_id ||
-                src.chunk_uid ||
-                "unknown source";
-
-            const chunkInfo =
-                src.chunk_id !== undefined && src.chunk_id !== null
-                    ? ` | chunk: ${src.chunk_id}`
-                    : "";
-
-            item.textContent = `${name}${chunkInfo}`.trim();
-
-            sourcesBox.appendChild(item);
+            item.textContent = src.source || "Documento sin título";
+            sourcesList.appendChild(item);
         });
 
+        // Toggle functionality
         toggleBtn.addEventListener("click", () => {
-            const isOpen = sourcesBox.classList.toggle("open");
-            toggleBtn.textContent = isOpen ? "Ocultar fuentes" : "Ver fuentes";
+            const isOpen = sourcesList.classList.toggle("open");
+            toggleBtn.classList.toggle("open", isOpen);
         });
 
-        contentDiv.appendChild(toggleBtn);
-        contentDiv.appendChild(sourcesBox);
+        toggleContainer.appendChild(toggleBtn);
+        toggleContainer.appendChild(sourcesList);
+        contentDiv.appendChild(toggleContainer);
 
         scrollToBottom();
     }
@@ -136,9 +124,7 @@ document.addEventListener("DOMContentLoaded", () => {
         try {
             const response = await fetch("http://127.0.0.1:8000/api/v1/query", {
                 method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
+                headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ question })
             });
 
@@ -152,20 +138,16 @@ document.addEventListener("DOMContentLoaded", () => {
             const text = data.answer || "No response received";
 
             let i = 0;
-
             function typeWriter() {
                 if (i < text.length) {
                     textElement.textContent += text[i];
                     i++;
-                    requestAnimationFrame(() => {
-                        setTimeout(typeWriter, 10);
-                    });
+                    requestAnimationFrame(() => setTimeout(typeWriter, 8));
                 } else {
                     addSources(data.sources, botMessage);
                     setLoading(false);
                 }
             }
-
             typeWriter();
 
         } catch (error) {
@@ -177,12 +159,10 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     sendBtn.addEventListener("click", sendQuestion);
-
     userInput.addEventListener("keydown", (e) => {
         if (e.key === "Enter" && !e.shiftKey) {
             e.preventDefault();
             sendQuestion();
         }
     });
-
 });
