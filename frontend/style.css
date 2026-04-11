@@ -104,7 +104,7 @@ main {
     gap:8px; 
 }
 
-/* BURBUJA NORMAL (mensajes que llegan después) */
+/* BURBUJA NORMAL */
 .message-text {
     background:var(--bg-card);
     border:1px solid var(--border);
@@ -114,20 +114,19 @@ main {
     font-size:0.95rem;
     word-break:break-word;
     overflow-wrap:break-word;
-    white-space:pre-wrap;
-    transition:transform .15s ease, border-color .15s ease;
 }
 
-/* MENSAJE INICIAL - Más compacto y sin sangría grande */
-.message.bot:first-child .message-text,
-.message[data-role="bot"]:first-child .message-text {
-    padding: 12px 16px !important;     /* menos espacio interno */
-    max-width: 78%;                    /* reduce el ancho de la burbuja */
-    margin-left: 0;
+/* MENSAJE INICIAL - Versión optimizada */
+.initial-message .message-text {
+    padding: 13px 17px !important;
+    font-size: 0.925rem !important;
+    line-height: 1.48 !important;
+    max-width: 100% !important;
+    white-space: normal !important;
 }
 
-/* Hover solo para mensajes normales (no afecta al inicial) */
-.message:not(:first-child) .message-text:hover {
+/* Hover solo para mensajes normales */
+.message:not(.initial-message) .message-text:hover {
     border-color:#2f2f3a;
     transform:translateY(-1px);
 }

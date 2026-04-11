@@ -16,39 +16,49 @@
 <body>
 
 <header>
-<div class="logo-container">
-<div class="logo-icon">AI</div>
-<h1>Omnix - Economic Insights</h1>
-</div>
-<div class="subtitle">
-AI-powered economic data analysis and insights
-</div>
+    <div class="logo-container">
+        <div class="logo-icon">AI</div>
+        <h1>Omnix - Economic Insights</h1>
+    </div>
+    <div class="subtitle">
+        AI-powered economic data analysis and insights
+    </div>
 </header>
 
 <main>
-<section class="chat-container" id="chat-container" aria-label="Chat section">
-    <!-- MENSAJE INICIAL DEL BOT -->
-    <div class="message bot" data-role="bot">
-        <div class="message-avatar">📊</div>
-        <div class="message-content">
-            <div class="message-text">
-                Hello! I hope your day is going well. I'm here to help you analyze economic trends, policies, inflation, growth, and other macroeconomic insights. Ask me anything to begin.
+    <section class="chat-container" id="chat-container" aria-label="Chat section">
+
+        <!-- MENSAJE INICIAL DEL BOT -->
+        <div class="message bot initial-message" data-role="bot">
+            <div class="message-avatar">📊</div>
+            <div class="message-content">
+                <div class="message-text">
+Hello! I hope you're doing great! I'm here to help you with economic trends, policies, inflation, growth, GDP, interest rates and other macroeconomic indicators. Feel free to ask me anything!
+                </div>
             </div>
         </div>
-    </div>
-</section>
+        <!-- FIN MENSAJE INICIAL -->
+
+    </section>
 </main>
 
 <div class="input-wrapper">
-<form class="input-container" id="chat-form">
-    <textarea id="user-input" placeholder="Ask about inflation, GDP, interest rates..." aria-label="User input"></textarea>
-    <button type="submit" class="send-btn" aria-label="Send message">→</button>
-</form>
-<div class="hint">
-Diseñado y desarrollado por Diógenes | Data Scientist & BI Strategist
-</div>
+    <form class="input-container" id="chat-form">
+        <textarea
+            id="user-input"
+            placeholder="Ask about inflation, GDP, interest rates..."
+            aria-label="User input"
+        ></textarea>
+        <button type="submit" class="send-btn" aria-label="Send message">
+            →
+        </button>
+    </form>
+    <div class="hint">
+        Diseñado y desarrollado por Diógenes | Data Scientist & BI Strategist
+    </div>
 </div>
 
 <script src="script.js"></script>
+
 </body>
 </html>

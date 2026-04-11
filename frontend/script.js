@@ -6,8 +6,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let isLoading = false;
 
-    function scrollToBottom() {
-        window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
+    // SCROLL ULTRA FUERTE
+    function forceScrollToBottom() {
+        setTimeout(() => {
+            window.scrollTo({
+                top: document.body.scrollHeight,
+                behavior: "auto"   // "auto" es más confiable durante animaciones
+            });
+        }, 5);
     }
 
     function setLoading(state) {
@@ -37,7 +43,8 @@ document.addEventListener("DOMContentLoaded", () => {
         messageDiv.appendChild(contentDiv);
 
         chatContainer.appendChild(messageDiv);
-        scrollToBottom();
+        
+        forceScrollToBottom();
 
         return messageDiv;
     }
@@ -62,19 +69,17 @@ document.addEventListener("DOMContentLoaded", () => {
         typingDiv.appendChild(contentDiv);
 
         chatContainer.appendChild(typingDiv);
-        scrollToBottom();
+        forceScrollToBottom();
 
         return typingDiv;
     }
 
-    // ====================== NUEVO TOGGLE DE FUENTES ESTILO CHATGPT ======================
+    // ====================== FUENTES ESTILO CHATGPT ======================
     function addSources(sources, parentMessage) {
         if (!sources || !Array.isArray(sources) || sources.length === 0) return;
 
         const contentDiv = parentMessage.querySelector(".message-content");
-
-        // Evitar duplicados
-        if (contentDiv.querySelector(".sources-toggle")) return;
+        if (contentDiv.querySelector(".sources-toggle-container")) return;
 
         const toggleContainer = document.createElement("div");
         toggleContainer.classList.add("sources-toggle-container");
@@ -97,7 +102,6 @@ document.addEventListener("DOMContentLoaded", () => {
             sourcesList.appendChild(item);
         });
 
-        // Toggle functionality
         toggleBtn.addEventListener("click", () => {
             const isOpen = sourcesList.classList.toggle("open");
             toggleBtn.classList.toggle("open", isOpen);
@@ -107,7 +111,7 @@ document.addEventListener("DOMContentLoaded", () => {
         toggleContainer.appendChild(sourcesList);
         contentDiv.appendChild(toggleContainer);
 
-        scrollToBottom();
+        forceScrollToBottom();
     }
 
     async function sendQuestion() {
@@ -138,16 +142,24 @@ document.addEventListener("DOMContentLoaded", () => {
             const text = data.answer || "No response received";
 
             let i = 0;
+
             function typeWriter() {
                 if (i < text.length) {
                     textElement.textContent += text[i];
                     i++;
-                    requestAnimationFrame(() => setTimeout(typeWriter, 8));
+
+                    // Scroll constante durante la escritura
+                    forceScrollToBottom();
+
+                    setTimeout(typeWriter, 8);
                 } else {
+                    // Al terminar
                     addSources(data.sources, botMessage);
                     setLoading(false);
+                    forceScrollToBottom();
                 }
             }
+
             typeWriter();
 
         } catch (error) {
@@ -159,10 +171,12 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     sendBtn.addEventListener("click", sendQuestion);
+
     userInput.addEventListener("keydown", (e) => {
         if (e.key === "Enter" && !e.shiftKey) {
             e.preventDefault();
             sendQuestion();
         }
     });
+
 });
