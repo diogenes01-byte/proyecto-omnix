@@ -93,23 +93,30 @@ Se logró construir un MVP funcional capaz de:
 
 ## 🏗️ Arquitectura de la solución
 
+```text
 Usuario
-↓
+   │
+   ▼
 Consulta financiera
-↓
+   │
+   ▼
 FastAPI
-↓
+   │
+   ▼
 Pipeline RAG
-↓
-Embeddings
-↓
-Base Vectorial (FAISS)
-↓
-Recuperación de contexto
-↓
+   │
+   ├── Embeddings
+   │
+   ├── Base Vectorial (FAISS)
+   │
+   └── Recuperación de contexto
+   │
+   ▼
 LLM
-↓
+   │
+   ▼
 Respuesta fundamentada
+```
 
 ---
 
